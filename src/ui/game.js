@@ -1,21 +1,28 @@
 (() => {
   'use strict';
   const R = window.Reversi;
+  const Replay = window.ReplayTimeline;
   const grid = document.querySelector('#cells');
-  const announcement = document.querySelector('#announcement');
-  const notice = document.querySelector('#notice');
-  const result = document.querySelector('#result');
-  const inversion = document.querySelector('#inversion');
-  const directionLabel = document.querySelector('#time-direction');
+  const log = document.querySelector('#log');
+  const dialog = document.querySelector('#new-game');
+  const passOverlay = document.querySelector('#pass-overlay');
+  const bgm = document.querySelector('#bgm');
+  const replay = document.querySelector('#replay');
+  const timeClock = document.querySelector('#time-clock');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const corners = new Set([0, R.SIZE - 1, R.SIZE * (R.SIZE - 1), R.SIZE * R.SIZE - 1]);
   let game = R.createGame();
+  let replayFrames = [Replay.snapshot(game)], epoch = 0, replaying = false;
+  const cpu = { '1': false, '-1': true };
+  let bgmOn = true;
+  const cancelled = Symbol('cancelled');
   let { board, player, ended } = game;
-  let busy = false, hover = -1, noticeTimer, passTimer;
+  let busy = false, hover = -1, turnTimer, logTimer;
   let pointer = null, target = -1;
   const cursor = piece(player, 'cursor-piece');
   cursor.hidden = true;
   document.body.append(cursor);
-  const name = value => value === R.BLACK ? '黒' : '白';
+  const name = value => value === R.BLACK ? 'Black' : 'White';
   const cells = board.map((_, index) => {
     const cell = document.createElement('button');
     cell.type = 'button'; cell.className = 'cell';
@@ -42,10 +49,10 @@
   function preview() {
     grid.querySelectorAll('.landing-shadow').forEach(element => element.remove());
     target = -1;
-    const overControls = pointer && document.elementFromPoint(pointer.x, pointer.y)?.closest('.time-controls, #result');
-    cursor.hidden = !pointer || busy || ended || Boolean(overControls);
-    document.body.classList.toggle('piece-pointer', Boolean(pointer) && !ended);
-    if (busy || ended) return;
+    const overControls = pointer && document.elementFromPoint(pointer.x, pointer.y)?.closest('.control');
+    cursor.hidden = !pointer || busy || ended || cpu[player] || dialog.open || Boolean(overControls);
+    document.body.classList.toggle('piece-pointer', Boolean(pointer) && !busy && !ended && !cpu[player] && !dialog.open);
+    if (busy || ended || cpu[player] || dialog.open) return;
     const legal = R.moves(board, player);
     if (pointer) {
       cursor.classList.toggle('white', player === R.WHITE);
@@ -75,7 +82,7 @@
     pointer = { x: event.clientX, y: event.clientY }; preview();
   });
   document.addEventListener('click', event => {
-    if (event.button !== 0 || event.detail === 0 || event.target.closest('#result, .time-controls')) return;
+    if (event.button !== 0 || event.detail === 0 || event.target.closest('.control')) return;
     if (event.pointerType === 'touch') return;
     pointer = { x: event.clientX, y: event.clientY }; preview();
     if (target >= 0) place(target);
@@ -88,100 +95,223 @@
     if (['Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) clearPointer();
   });
   document.addEventListener('pointerdown', event => { if (event.pointerType === 'touch') clearPointer(); });
+  function updateTimeShades(history = game.history) {
+    cells.forEach(cell => {
+      cell.style.removeProperty('--time-strength');
+      cell.classList.remove('nearest-time', 'second-time');
+    });
+    for (const direction of [1, -1]) {
+      const turns = history[direction];
+      // Anchor to the nearest surviving stone, not a trailing pass. Passes
+      // between stones still count as distance along the timeline.
+      const nearest = turns.findLastIndex(index => index !== null);
+      const second = turns.findLastIndex((index, turn) => turn < nearest && index !== null);
+      for (let turn = 0; turn <= nearest; turn++) {
+        const index = turns[turn];
+        if (index === null) continue;
+        const distance = nearest - turn;
+        cells[index].classList.toggle('nearest-time', distance === 0);
+        cells[index].classList.toggle('second-time', turn === second);
+        const strength = 100 / (1 + distance * .24);
+        cells[index].style.setProperty('--time-strength', `${strength.toFixed(3)}%`);
+      }
+    }
+  }
   function render() {
-    inversion.disabled = busy || ended;
-    inversion.setAttribute('aria-pressed', String(game.direction === -1));
-    directionLabel.textContent = game.direction === 1 ? '順行 →' : '← 逆行';
-    document.querySelector('.time-controls').classList.toggle('reverse', game.direction === -1);
+    document.body.classList.toggle('reverse-time', game.direction === -1);
+    const clock = R.clockReading(game);
+    timeClock.style.setProperty('--clock-start', `${clock.start * 11.25}deg`);
+    timeClock.style.setProperty('--orange-end', `${clock.forward * 11.25}deg`);
+    timeClock.style.setProperty('--blue-end', `${(clock.forward + clock.reverse) * 11.25}deg`);
+    timeClock.style.setProperty('--hand-angle', `${clock.needle * 11.25}deg`);
+    timeClock.setAttribute('aria-label', `${game.direction === 1 ? 'Forward' : 'Reverse'} time. ${clock.forward} forward stones, ${clock.reverse} reverse stones`);
     const legal = busy || ended ? [] : R.moves(board, player);
     cells.forEach((cell, index) => {
       cell.replaceChildren();
       cell.classList.toggle('legal', legal.includes(index));
+      const activeCorner = corners.has(index) && !game.usedCorners.includes(index) && !board[index];
+      cell.classList.toggle('inversion-corner', activeCorner);
       cell.classList.toggle('forward-stone', game.origins[index] === 1);
       cell.classList.toggle('reverse-stone', game.origins[index] === -1);
       cell.setAttribute('aria-disabled', String(!legal.includes(index)));
-      cell.setAttribute('aria-label', `${Math.floor(index / 6) + 1}行${index % 6 + 1}列、${board[index] ? name(board[index]) + (game.origins[index] === 1 ? '、順行駒' : game.origins[index] === -1 ? '、逆行駒' : '') : legal.includes(index) ? name(player) + 'を置けます' : '空き'}`);
+      cell.setAttribute('aria-label', `Row ${Math.floor(index / 6) + 1}, column ${index % 6 + 1}: ${board[index] ? name(board[index]) : 'empty'}${activeCorner ? ', time inversion corner' : ''}`);
       if (board[index]) cell.append(piece(board[index]));
+      if (activeCorner) {
+        const icon = document.createElement('img');
+        icon.className = 'corner-icon';
+        icon.src = game.direction === 1 ? 'assets/icon/time-inversion-forward.svg' : 'assets/icon/time-inversion-reverse.svg';
+        icon.alt = '';
+        icon.setAttribute('aria-hidden', 'true');
+        cell.append(icon);
+      }
     });
+    updateTimeShades();
     preview();
-    if (!busy && !ended) announcement.textContent = `${game.direction === 1 ? '順行' : '逆行'}、${name(player)}の手番です。`;
+
   }
-  function showNotice(text) {
-    clearTimeout(noticeTimer);
-    notice.textContent = text; announcement.textContent = text; notice.hidden = false;
-    noticeTimer = setTimeout(() => { notice.hidden = true; }, 2600);
+  function setLog(text) { log.textContent = text; }
+  function updateLog() {
+    if (replaying) return;
+    const blackCount = document.querySelector('#black-count');
+    const whiteCount = document.querySelector('#white-count');
+    blackCount.hidden = whiteCount.hidden = !ended;
+    if (!ended) { setLog(`${name(player)}'s turn`); return; }
+    const black = board.filter(value => value === R.BLACK).length;
+    const white = board.filter(value => value === R.WHITE).length;
+    blackCount.textContent = String(black);
+    whiteCount.textContent = String(white);
+    blackCount.setAttribute('aria-label', `Black: ${black} stones`);
+    whiteCount.setAttribute('aria-label', `White: ${white} stones`);
+    setLog(black === white ? 'Draw!' : `${name(black > white ? R.BLACK : R.WHITE)} wins!`);
   }
-  function schedulePass() {
-    clearTimeout(passTimer);
-    if (busy || ended || R.moves(board, player).length) return;
-    showNotice(`${name(player)}は置ける場所がないためパスします。`);
-    // Leave a between-turn interval in which TIME INVERSION remains available.
-    passTimer = setTimeout(() => place(null), 1100);
+  function scheduleTurn() {
+    clearTimeout(turnTimer);
+    if (busy || ended || dialog.open || replaying) return;
+    const legal = R.moves(board, player);
+    if (!legal.length) turnTimer = setTimeout(() => place(null, 'auto'), 350);
+    else if (cpu[player]) turnTimer = setTimeout(() => {
+      const moves = R.moves(board, player);
+      if (cpu[player] && moves.length) place(moves[Math.floor(Math.random() * moves.length)], 'auto');
+    }, 650);
   }
-  inversion.addEventListener('click', event => {
-    event.stopPropagation();
-    if (busy || ended) return;
-    game = R.invert(game);
-    render();
-    showNotice(game.direction === 1 ? '時間反転：順行' : '時間反転：逆行');
-    schedulePass();
-  });
-  const wait = ms => new Promise(resolve => setTimeout(resolve, reduced.matches ? 0 : ms));
-  async function place(index) {
-    if (busy || ended) return;
+  async function pause(ms, run, motion = false) {
+    await new Promise(resolve => setTimeout(resolve, motion && reduced.matches ? 0 : ms));
+    if (run !== epoch) throw cancelled;
+  }
+  async function pulse(run) {
+    document.body.classList.remove('time-pulse');
+    void document.body.offsetWidth;
+    document.body.classList.add('time-pulse');
+    await pause(360, run, true);
+    document.body.classList.remove('time-pulse');
+  }
+  async function showPass(run) {
+    const disc = piece(player, 'pass-disc');
+    const label = document.createElement('span');
+    label.className = 'pass-label'; label.textContent = 'PASS';
+    disc.querySelector('.body').append(label);
+    passOverlay.replaceChildren(disc); passOverlay.hidden = false;
+    await pause(800, run);
+    passOverlay.hidden = true;
+  }
+  async function place(index, source = 'human') {
+    if (busy || ended || dialog.open || (source === 'human' && cpu[player])) return;
+    const run = epoch;
+    const before = game;
     const move = R.advance(game, index);
     if (!move) return;
-    const origin = pointer && !cursor.hidden ? cursor.getBoundingClientRect() : null;
+    const frames = Replay.framesForAdvance(before, move);
+    const origin = source === 'human' && pointer && !cursor.hidden ? cursor.getBoundingClientRect() : null;
     busy = true;
-    clearTimeout(passTimer);
-    clearTimeout(noticeTimer); notice.hidden = true;
+    clearTimeout(turnTimer); clearTimeout(logTimer);
     grid.setAttribute('aria-busy', 'true');
     render();
-    if (index !== null) {
-      const placed = piece(player, 'placing');
-      cells[index].classList.add(move.placedDirection === 1 ? 'forward-stone' : 'reverse-stone');
-      cells[index].append(placed);
-      if (origin) {
-        const destination = placed.getBoundingClientRect();
-        placed.style.setProperty('--drop-x', `${origin.left - destination.left}px`);
-        placed.style.setProperty('--drop-y', `${origin.top - destination.top}px`);
+    try {
+      if (index === null) await showPass(run);
+      else {
+        const placed = piece(player, 'placing');
+        cells[index].classList.add(move.placedDirection === 1 ? 'forward-stone' : 'reverse-stone');
+        cells[index].append(placed);
+        if (origin) {
+          const destination = placed.getBoundingClientRect();
+          placed.style.setProperty('--drop-x', `${origin.left - destination.left}px`);
+          placed.style.setProperty('--drop-y', `${origin.top - destination.top}px`);
+        }
+        await pause(240, run, true);
+        updateTimeShades({ ...game.history, [move.placedDirection]: [...game.history[move.placedDirection], index] });
       }
-      await wait(240);
-    }
-    for (const i of move.captured) {
-      const disc = piece(player, 'turning');
-      disc.style.setProperty('--old-face', player === R.BLACK ? 'var(--white)' : 'var(--black)');
-      disc.style.setProperty('--old-side', player === R.BLACK ? 'var(--white-side)' : 'var(--black-side)');
-      cells[i].replaceChildren(disc);
-    }
-    if (move.captured.length) await wait(260);
+      for (const i of move.captured) {
+        const disc = piece(player, 'turning');
+        disc.style.setProperty('--old-face', player === R.BLACK ? 'var(--white)' : 'var(--black)');
+        disc.style.setProperty('--old-side', player === R.BLACK ? 'var(--white-side)' : 'var(--black-side)');
+        cells[i].replaceChildren(disc);
+      }
+      if (move.captured.length) await pause(260, run, true);
+      await animateRemoval(move, run);
+      if (move.cornerInversion) {
+        game = { ...move.beforeInversion, direction: -move.placedDirection, ended: false };
+        board = game.board;
+        render(); setLog('Time inversion');
+        await pulse(run);
+        await animateRemoval(move.cornerInversion, run);
+      }
+      if (run !== epoch) return;
+      game = move.state;
+      replayFrames.push(...frames);
+      ({ board, player, ended } = game);
+      busy = false;
+      grid.setAttribute('aria-busy', 'false');
+      replay.hidden = !ended;
+      render();
+      if (move.cornerInversion && !ended) {
+        setLog('Time inversion');
+        logTimer = setTimeout(() => { if (run === epoch) updateLog(); }, 500);
+      } else updateLog();
+      scheduleTurn();
+    } catch (error) { if (error !== cancelled) throw error; }
+  }
+  async function animateRemoval(move, run) {
     if (move.removed !== null) {
       cells[move.removed].replaceChildren(piece(move.removedColor, 'vanishing'));
-      await wait(300);
+      await pause(300, run, true);
       cells[move.removed].replaceChildren();
       cells[move.removed].classList.remove('forward-stone', 'reverse-stone');
     }
-    game = move.state;
-    ({ board, player, ended } = game);
-    busy = false;
-    grid.setAttribute('aria-busy', 'false');
-    render();
-    if (move.forced) showNotice('順行の履歴を戻りきったため、順行に戻ります。');
-    else if (move.passed) showNotice(`${name(-player)}はパス。${name(player)}の手番です。`);
-    if (ended) {
-      const black = board.filter(value => value === R.BLACK).length;
-      const white = board.filter(value => value === R.WHITE).length;
-      const text = `黒 ${black} ― ${white} 白　${black === white ? '引き分け' : name(black > white ? R.BLACK : R.WHITE) + 'の勝ち'}`;
-      document.querySelector('#result-text').textContent = text;
-      announcement.textContent = text; result.hidden = false;
-      clearTimeout(noticeTimer); notice.hidden = true;
-    }
-    schedulePass();
   }
-  document.querySelector('#restart').addEventListener('click', () => {
-    clearTimeout(passTimer); clearTimeout(noticeTimer);
-    game = R.createGame(); ({ board, player, ended } = game); hover = -1;
-    result.hidden = true; notice.hidden = true; render(); cells[0].focus();
+  replay.addEventListener('click', async event => {
+    event.stopPropagation();
+    if (!ended || busy || dialog.open) return;
+    const finalGame = game, run = epoch;
+    busy = true; replaying = true; replay.disabled = true;
+    grid.setAttribute('aria-busy', 'true');
+    try {
+      for (const frame of replayFrames) {
+        const changed = game.direction !== frame.direction;
+        game = frame;
+        ({ board, player, ended } = game);
+        render();
+        if (changed) await pulse(run);
+        await pause(145, run);
+      }
+      game = finalGame;
+      ({ board, player, ended } = game);
+      busy = false; replaying = false; replay.disabled = false;
+      grid.setAttribute('aria-busy', 'false'); render();
+    } catch (error) { if (error !== cancelled) throw error; }
   });
-  render();
+  function newGame() {
+    epoch++;
+    clearTimeout(turnTimer); clearTimeout(logTimer);
+    game = R.createGame(); ({ board, player, ended } = game); hover = -1;
+    replayFrames = [Replay.snapshot(game)];
+    busy = false; replaying = false; replay.disabled = false; replay.hidden = true;
+    passOverlay.hidden = true;
+    document.body.classList.remove('time-pulse');
+    grid.setAttribute('aria-busy', 'false');
+    render(); updateLog(); scheduleTurn();
+  }
+  document.querySelector('#title').addEventListener('click', () => {
+    clearTimeout(turnTimer);
+    dialog.returnValue = ''; dialog.showModal(); preview();
+  });
+  dialog.addEventListener('close', () => {
+    if (dialog.returnValue === 'yes') newGame();
+    else { preview(); scheduleTurn(); }
+  });
+  bgm.addEventListener('click', () => {
+    bgmOn = !bgmOn;
+    bgm.setAttribute('aria-pressed', String(bgmOn));
+    bgm.title = `BGM ${bgmOn ? 'on' : 'off'}`;
+    bgm.querySelector('img').src = `assets/icon/bgm-${bgmOn ? 'on' : 'off'}.svg`;
+  });
+  for (const color of [R.BLACK, R.WHITE]) {
+    const button = document.querySelector(`#cpu-${name(color).toLowerCase()}`);
+    button.addEventListener('click', () => {
+      cpu[color] = !cpu[color];
+      button.textContent = cpu[color] ? 'ON' : 'OFF';
+      button.setAttribute('aria-pressed', String(cpu[color]));
+      preview(); scheduleTurn();
+    });
+  }
+  render(); updateLog(); scheduleTurn();
 })();

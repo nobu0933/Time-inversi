@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_1" data-name="レイヤー_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 64 64">
+  <!-- Generator: Adobe Illustrator 30.3.0, SVG Export Plug-In . SVG Version: 2.1.3 Build 182)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke-width: 4px;
+      }
+
+      .st0, .st1 {
+        fill: none;
+        stroke: #b3b3b3;
+        stroke-miterlimit: 10;
+      }
+
+      .st1 {
+        stroke-width: 2px;
+      }
+
+      .st2 {
+        fill: #b3b3b3;
+      }
+    </style>
+  </defs>
+  <circle class="st0" cx="32" cy="36.8" r="20.1"/>
+  <circle class="st0" cx="32" cy="11.1" r="4"/>
+  <line class="st1" x1="32" y1="16.7" x2="32" y2="20.8"/>
+  <line class="st1" x1="32" y1="56.9" x2="32" y2="52.8"/>
+  <line class="st1" x1="48" y1="36.8" x2="52.1" y2="36.8"/>
+  <line class="st1" x1="11.9" y1="36.8" x2="16" y2="36.8"/>
+  <line class="st1" x1="43.3" y1="48.1" x2="46.2" y2="51"/>
+  <line class="st1" x1="17.8" y1="22.6" x2="20.7" y2="25.5"/>
+  <line class="st1" x1="43.3" y1="25.5" x2="46.2" y2="22.6"/>
+  <line class="st1" x1="17.8" y1="51" x2="20.7" y2="48.1"/>
+  <line class="st1" x1="32" y1="36.8" x2="32" y2="22.6"/>
+  <circle class="st2" cx="32" cy="36.8" r="2.5"/>
+</svg>

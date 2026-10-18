@@ -35,10 +35,23 @@
   // Each direction owns a stack of still-existing turns, including empty pass turns.
   function createGame() {
     return { board: initial(), origins: Array(SIZE * SIZE).fill(0), player: BLACK,
-      direction: 1, history: { '1': [], '-1': [] }, ended: false };
+      direction: 1, history: { '1': [], '-1': [] }, clockOrigin: 0, clockAnchor: 0,
+      usedCorners: [], ended: false };
   }
   function invert(state) {
-    return state.ended ? state : { ...state, direction: -state.direction };
+    if (state.ended) return null;
+    const result = rewind({ ...state, board: state.board.slice(), origins: state.origins.slice(),
+      history: { '1': state.history[1].slice(), '-1': state.history[-1].slice() },
+      direction: -state.direction });
+    if (result.state.direction === 1) {
+      // Keep the oldest reverse-to-forward turning point as the orange sector's start.
+      // A removed reverse stone moves the live boundary, but never moves that start forward.
+      const turningPoint = result.state.clockOrigin + (result.removed !== null ? 1 : 0);
+      const anchor = Math.min(state.clockAnchor ?? 0, turningPoint);
+      result.state.clockAnchor = anchor;
+      result.state.clockOrigin = anchor;
+    }
+    return result;
   }
   function advance(state, index = null) {
     if (state.ended) return null;
@@ -52,22 +65,42 @@
       for (const i of captured) board[i] = state.player;
     }
     history[placedDirection].push(index);
+    const clockOrigin = placedDirection === -1 && index !== null
+      && state.history[1].every(turn => turn === null)
+      ? state.clockOrigin - 1 : state.clockOrigin;
+    const cornerTriggered = [0, SIZE - 1, SIZE * (SIZE - 1), SIZE * SIZE - 1].includes(index)
+      && !state.usedCorners.includes(index);
+    const usedCorners = cornerTriggered ? [...state.usedCorners, index] : state.usedCorners.slice();
+    const turn = rewind({ board, origins, history, clockOrigin, clockAnchor: state.clockAnchor, usedCorners, player: -state.player, direction: placedDirection });
+    const cornerInversion = cornerTriggered ? invert({ ...turn.state, ended: false }) : null;
+    return { ...turn, state: cornerInversion ? cornerInversion.state : turn.state,
+      beforeInversion: cornerTriggered ? turn.state : null, cornerInversion,
+      index, captured, passed: index === null, placedDirection };
+  }
+  function rewind(state) {
+    const { board, origins, history, player } = state;
+    const placedDirection = state.direction;
     // Pop exactly one turn: a pass must not skip to the preceding placement.
     const previous = history[-placedDirection].pop();
     const removed = previous == null ? null : previous;
     const removedColor = removed === null ? 0 : board[removed];
     if (removed !== null) { board[removed] = 0; origins[removed] = 0; }
-    const forced = placedDirection === -1 && history[1].length === 0;
-    const direction = forced ? 1 : placedDirection;
+    const direction = placedDirection;
     const black = board.filter(value => value === BLACK).length;
     const white = board.filter(value => value === WHITE).length;
     const stalled = !moves(board, BLACK).length && !moves(board, WHITE).length;
     const ended = black === 0 || white === 0 || black + white === SIZE * SIZE
       || (stalled && !origins.includes(-direction));
-    return { state: { board, origins, history, player: -state.player, direction, ended },
-      index, captured, removed, removedColor, passed: index === null, forced, placedDirection };
+    return { state: { ...state, board, origins, history, player, direction, ended },
+      removed, removedColor };
   }
-  const api = { SIZE, BLACK, WHITE, initial, flips, moves, play, createGame, invert, advance };
+  function clockReading(state) {
+    const forward = state.origins.filter(origin => origin === 1).length;
+    const reverse = state.origins.filter(origin => origin === -1).length;
+    const start = state.clockOrigin;
+    return { forward, reverse, start, needle: start + forward, futureEnd: start + forward + reverse };
+  }
+  const api = { SIZE, BLACK, WHITE, initial, flips, moves, play, createGame, invert, advance, clockReading };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.Reversi = api;
 })(globalThis);
