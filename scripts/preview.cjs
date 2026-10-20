@@ -3,8 +3,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const files = { '/assets/icon/bgm-on.svg': 'assets/icon/bgm-on.svg', '/assets/icon/bgm-off.svg': 'assets/icon/bgm-off.svg', '/': 'index.html', '/index.html': 'index.html', '/styles/style.css': 'styles/style.css', '/src/game/rules.js': 'src/game/rules.js', '/src/game/replay.js': 'src/game/replay.js', '/src/ui/game.js': 'src/ui/game.js', '/assets/icon/time-inversion-forward.svg': 'assets/icon/time-inversion-forward.svg', '/assets/icon/time-inversion-reverse.svg': 'assets/icon/time-inversion-reverse.svg', '/assets/icon/pocket-watch-frame.svg': 'assets/icon/pocket-watch-frame.svg', '/assets/icon/pocket-watch-hand.svg': 'assets/icon/pocket-watch-hand.svg', '/assets/icon/replay.svg': 'assets/icon/replay.svg' };
+for (const file of ['src/ai/client.js', 'src/ai/worker.js', 'src/ai/network.js', 'src/ai/search.js', 'assets/ai/model.js']) files['/' + file] = file;
+files['/hosting-check.html'] = 'tests/hosting.html';
 http.createServer((req, res) => {
-  const file = files[new URL(req.url, 'http://localhost').pathname];
+  const route = new URL(req.url, 'http://localhost').pathname.replace(/^\/time-inversi(?=\/)/, '');
+  const file = files[route];
   if (!file) { res.writeHead(404); res.end(); return; }
   res.setHeader('Content-Type', ({ '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml' })[path.extname(file)]);
   res.end(fs.readFileSync(path.join(root, file)));

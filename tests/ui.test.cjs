@@ -6,7 +6,7 @@ const R = require('../src/game/rules.js');
 const Replay = require('../src/game/replay.js');
 
 // A small DOM and virtual clock exercise UI scheduling without a browser or network.
-function app(initial = R.createGame()) {
+function app(initial = R.createGame(), chooseMove = () => Promise.reject(new Error('No PRO test model'))) {
   class Element {
     constructor() {
       this.children = []; this.attrs = {}; this.events = {}; this.hidden = false;
@@ -30,8 +30,9 @@ function app(initial = R.createGame()) {
   ids.bgm.append(new Element()); ids['pass-overlay'].hidden = true; ids.replay.hidden = true;
   const document = { querySelector: selector => ids[selector.slice(1)], createElement: () => new Element(), body: new Element(), documentElement: new Element(), addEventListener() {} };
   let now = 0, next = 0; const timers = new Map();
-  const context = { window: { Reversi: { ...R, createGame: () => Replay.snapshot(initial) }, ReplayTimeline: Replay, addEventListener() {} }, document,
-    matchMedia: () => ({ matches: false }), setTimeout: (fn, ms) => { timers.set(++next, { fn, at: now + ms }); return next; }, clearTimeout: id => timers.delete(id), console };
+  const context = { window: { Reversi: { ...R, createGame: () => Replay.snapshot(initial) }, ReplayTimeline: Replay, ProAI: { choose: chooseMove }, addEventListener() {} }, document,
+    matchMedia: () => ({ matches: false }), setTimeout: (fn, ms) => { timers.set(++next, { fn, at: now + ms }); return next; }, clearTimeout: id => timers.delete(id), console,
+    AbortController };
   vm.runInNewContext(fs.readFileSync(require.resolve('../src/ui/game.js'), 'utf8'), context);
   async function tick(ms) {
     const end = now + ms;
@@ -55,6 +56,36 @@ test('white CPU plays after black; BGM switches its supplied icon', async () => 
   assert.equal(ui.ids.log.textContent, "White's turn");
   await ui.tick(1150);
   assert.equal(ui.ids.log.textContent, "Black's turn");
+});
+
+test('CPU cycles OFF, EZY, MID, PRO; MID uses the browser model and PRO waits', async () => {
+  const requests = [];
+  const ui = app(R.createGame(), (state, options) => {
+    requests.push({ state, options });
+    return Promise.resolve({ action: 8 });
+  });
+  ui.click('cpu-black'); assert.equal(ui.ids['cpu-black'].textContent, 'EZY');
+  ui.click('cpu-black'); assert.equal(ui.ids['cpu-black'].textContent, 'MID');
+  await ui.tick(350);
+  assert.equal(requests.length, 1);
+  assert.equal(requests[0].state.player, R.BLACK);
+  await ui.tick(500);
+  assert.match(ui.ids.cells.children[8].attrs['aria-label'], /Black/);
+  ui.click('cpu-black'); assert.equal(ui.ids['cpu-black'].textContent, 'PRO');
+  await ui.tick(1000);
+  assert.equal(requests.length, 1);
+  ui.click('cpu-black'); assert.equal(ui.ids['cpu-black'].textContent, 'OFF');
+});
+
+test('a MID response is discarded after changing CPU mode', async () => {
+  let resolveRequest;
+  const ui = app(R.createGame(), () => new Promise(resolve => { resolveRequest = resolve; }));
+  ui.click('cpu-black'); ui.click('cpu-black');
+  await ui.tick(350);
+  ui.click('cpu-black');
+  resolveRequest({ action: 8 });
+  await ui.tick(500);
+  assert.match(ui.ids.cells.children[8].attrs['aria-label'], /empty/);
 });
 
 test('new game during an animation cancels stale work and confirmation pauses CPU', async () => {

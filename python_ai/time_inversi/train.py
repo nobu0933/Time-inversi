@@ -1,5 +1,6 @@
 """AlphaZero-style self-play, replay-buffer learning, checkpoint/resume and evaluation."""
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -11,6 +12,7 @@ from .buffer import ReplayBuffer
 from .checkpoint import device_for, load, save
 from .evaluate import evaluate
 from .network import NetworkConfig, PolicyValueNet, batch_inputs
+from .rules import PASS
 from .selfplay import self_play
 
 
@@ -61,19 +63,33 @@ def parser():
     p.add_argument('--device', choices=['auto', 'cpu', 'cuda'], default='auto')
     p.add_argument('--output', type=Path)
     p.add_argument('--resume', type=Path)
+    p.add_argument('--init-model', type=Path,
+                   help='Start a new Time Inversi run from ordinary-Othello distilled weights')
     return p
 
 
 def main(argv=None):
     p = parser()
     args = p.parse_args(argv)
+    if args.init_model and args.resume:
+        p.error('--init-model starts a new run and cannot be combined with --resume')
+    initial_weights = None
+    if args.init_model:
+        initial_weights = torch.load(args.init_model, map_location='cpu', weights_only=True)
+        if initial_weights.get('format') != 'time-inversi-ordinary-pretrain-v1':
+            p.error('--init-model requires a distilled ordinary-Othello checkpoint')
+        p.set_defaults(**initial_weights['network_config'])
+        args = p.parse_args(argv)
+        for name, expected in initial_weights['network_config'].items():
+            if getattr(args, name) != expected:
+                p.error(f'{name} must match --init-model ({expected})')
     restored = None
     if args.resume:
         restored = load(args.resume, device_for(args.device))
         model, data = restored
         # Only training settings inherit; paths, device and additional iterations are local.
         saved = {k: v for k, v in data['training_config'].items()
-                 if k in vars(args) and k not in ('resume', 'output', 'device', 'iterations')}
+                 if k in vars(args) and k not in ('resume', 'output', 'device', 'iterations', 'init_model')}
         saved.update(data['network_config'])
         saved['buffer_size'] = data['replay']['capacity']
         saved['learning_rate'] = data['optimizer']['param_groups'][0]['lr']
@@ -115,18 +131,41 @@ def main(argv=None):
         start = data['iteration']
     else:
         model = PolicyValueNet(NetworkConfig(args.channels, args.blocks, args.history_hidden)).to(device)
+        if initial_weights is not None:
+            model.load_state_dict(initial_weights['model'], strict=True)
         optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
         replay = ReplayBuffer(args.buffer_size)
     output.mkdir(parents=True, exist_ok=True)
     config = {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}
+    if initial_weights is not None:
+        label_counts = initial_weights.get('label_counts') or {}
+        ordinary_count = sum(label_counts.get('ordinary', {}).values())
+        labeled_count = sum(sum(row.values()) for row in label_counts.values())
+        config['pretraining'] = dict(
+            checkpoint_name=args.init_model.name,
+            checkpoint_sha256=hashlib.sha256(args.init_model.read_bytes()).hexdigest(),
+            teacher_type=initial_weights.get('teacher_type'),
+            teacher_sha256=initial_weights.get('teacher_sha256'),
+            opening_sha256=initial_weights.get('opening_sha256'),
+            init_model_sha256=initial_weights.get('init_model_sha256'),
+            ordinary_share=initial_weights.get('ordinary_share',
+                                               ordinary_count / labeled_count if labeled_count else None),
+            label_counts=label_counts)
+    elif args.resume and 'pretraining' in data['training_config']:
+        config['pretraining'] = data['training_config']['pretraining']
     print(f'Device: {device}; output: {output}; starting iteration: {start}', flush=True)
     for iteration in range(start + 1, start + args.iterations + 1):
         began = time.perf_counter()
         turns = []
+        reverse_turns = passes = corner_inversions = 0
         for game in range(args.self_play_games):
-            samples, _ = self_play(model, rng, args.simulations, args.temperature_moves, args.max_moves)
+            samples, final_state = self_play(model, rng, args.simulations,
+                                             args.temperature_moves, args.max_moves)
             replay.add(samples)
             turns.append(len(samples))
+            reverse_turns += sum(sample.state.direction == -1 for sample in samples)
+            passes += sum(bool(sample.policy[PASS] > 0.999) for sample in samples)
+            corner_inversions += len(final_state.used_corners)
             print(f'Iteration {iteration}, game {game + 1}/{args.self_play_games}: {len(samples)} turns', flush=True)
         losses = []
         if len(replay) >= args.batch_size:
@@ -134,7 +173,10 @@ def main(argv=None):
                 losses.append(train_batch(model, optimizer, replay.sample(args.batch_size, rng)))
         else:
             print(f'Waiting for samples: {len(replay)}/{args.batch_size}; no weight update this iteration', flush=True)
-        metrics = dict(iteration=iteration, buffer=len(replay), games=len(turns), mean_turns=float(np.mean(turns)), updates=len(losses))
+        metrics = dict(iteration=iteration, buffer=len(replay), games=len(turns),
+                       mean_turns=float(np.mean(turns)), reverse_turns=reverse_turns,
+                       passes=passes, corner_inversions=corner_inversions,
+                       updates=len(losses))
         if losses:
             metrics.update({key: float(np.mean([loss[key] for loss in losses])) for key in losses[0]})
         save(checkpoint, model, optimizer, replay, rng, iteration, config)

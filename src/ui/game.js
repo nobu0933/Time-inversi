@@ -13,11 +13,11 @@
   const corners = new Set([0, R.SIZE - 1, R.SIZE * (R.SIZE - 1), R.SIZE * R.SIZE - 1]);
   let game = R.createGame();
   let replayFrames = [Replay.snapshot(game)], epoch = 0, replaying = false;
-  const cpu = { '1': false, '-1': true };
+  const cpu = { '1': 'OFF', '-1': 'EZY' };
   let bgmOn = true;
   const cancelled = Symbol('cancelled');
   let { board, player, ended } = game;
-  let busy = false, hover = -1, turnTimer, logTimer;
+  let busy = false, hover = -1, turnTimer, logTimer, proRequest;
   let pointer = null, target = -1;
   const cursor = piece(player, 'cursor-piece');
   cursor.hidden = true;
@@ -50,9 +50,9 @@
     grid.querySelectorAll('.landing-shadow').forEach(element => element.remove());
     target = -1;
     const overControls = pointer && document.elementFromPoint(pointer.x, pointer.y)?.closest('.control');
-    cursor.hidden = !pointer || busy || ended || cpu[player] || dialog.open || Boolean(overControls);
-    document.body.classList.toggle('piece-pointer', Boolean(pointer) && !busy && !ended && !cpu[player] && !dialog.open);
-    if (busy || ended || cpu[player] || dialog.open) return;
+    cursor.hidden = !pointer || busy || ended || cpu[player] !== 'OFF' || dialog.open || Boolean(overControls);
+    document.body.classList.toggle('piece-pointer', Boolean(pointer) && !busy && !ended && cpu[player] === 'OFF' && !dialog.open);
+    if (busy || ended || cpu[player] !== 'OFF' || dialog.open) return;
     const legal = R.moves(board, player);
     if (pointer) {
       cursor.classList.toggle('white', player === R.WHITE);
@@ -166,13 +166,31 @@
   }
   function scheduleTurn() {
     clearTimeout(turnTimer);
+    proRequest?.abort(); proRequest = null;
     if (busy || ended || dialog.open || replaying) return;
     const legal = R.moves(board, player);
     if (!legal.length) turnTimer = setTimeout(() => place(null, 'auto'), 350);
-    else if (cpu[player]) turnTimer = setTimeout(() => {
+    else if (cpu[player] === 'EZY') turnTimer = setTimeout(() => {
       const moves = R.moves(board, player);
-      if (cpu[player] && moves.length) place(moves[Math.floor(Math.random() * moves.length)], 'auto');
+      if (cpu[player] === 'EZY' && moves.length) place(moves[Math.floor(Math.random() * moves.length)], 'auto');
     }, 650);
+    else if (cpu[player] === 'MID') turnTimer = setTimeout(requestMidMove, 350);
+  }
+  async function requestMidMove() {
+    const run = epoch, position = game, controller = new AbortController();
+    proRequest = controller;
+    try {
+      const result = await window.ProAI.choose(position, { signal: controller.signal });
+      if (run !== epoch || position !== game || cpu[player] !== 'MID' || dialog.open || replaying) return;
+      const moves = R.moves(board, player);
+      if (!Number.isInteger(result.action) || !moves.includes(result.action)) throw new Error('MID returned an illegal move');
+      place(result.action, 'auto');
+    } catch (error) {
+      if (error.name !== 'AbortError' && run === epoch && position === game && cpu[player] === 'MID') {
+        console.error(error);
+        setLog('MID unavailable — reload the page');
+      }
+    } finally { if (proRequest === controller) proRequest = null; }
   }
   async function pause(ms, run, motion = false) {
     await new Promise(resolve => setTimeout(resolve, motion && reduced.matches ? 0 : ms));
@@ -195,7 +213,7 @@
     passOverlay.hidden = true;
   }
   async function place(index, source = 'human') {
-    if (busy || ended || dialog.open || (source === 'human' && cpu[player])) return;
+    if (busy || ended || dialog.open || (source === 'human' && cpu[player] !== 'OFF')) return;
     const run = epoch;
     const before = game;
     const move = R.advance(game, index);
@@ -281,6 +299,7 @@
   });
   function newGame() {
     epoch++;
+    proRequest?.abort(); proRequest = null;
     clearTimeout(turnTimer); clearTimeout(logTimer);
     game = R.createGame(); ({ board, player, ended } = game); hover = -1;
     replayFrames = [Replay.snapshot(game)];
@@ -292,6 +311,7 @@
   }
   document.querySelector('#title').addEventListener('click', () => {
     clearTimeout(turnTimer);
+    proRequest?.abort(); proRequest = null;
     dialog.returnValue = ''; dialog.showModal(); preview();
   });
   dialog.addEventListener('close', () => {
@@ -307,9 +327,14 @@
   for (const color of [R.BLACK, R.WHITE]) {
     const button = document.querySelector(`#cpu-${name(color).toLowerCase()}`);
     button.addEventListener('click', () => {
-      cpu[color] = !cpu[color];
-      button.textContent = cpu[color] ? 'ON' : 'OFF';
-      button.setAttribute('aria-pressed', String(cpu[color]));
+      const modes = ['OFF', 'EZY', 'MID', 'PRO'];
+      cpu[color] = modes[(modes.indexOf(cpu[color]) + 1) % modes.length];
+      button.textContent = cpu[color];
+      button.setAttribute('data-mode', cpu[color]);
+      button.setAttribute('aria-pressed', String(cpu[color] !== 'OFF'));
+      button.setAttribute('aria-label', `${name(color)} CPU: ${cpu[color]}${cpu[color] === 'PRO' ? ', not available yet' : ''}`);
+      button.title = `${name(color)} CPU: ${{ OFF: 'human', EZY: 'random', MID: 'browser AI', PRO: 'not available yet' }[cpu[color]]}`;
+      if (log.textContent === 'MID unavailable — reload the page') updateLog();
       preview(); scheduleTurn();
     });
   }

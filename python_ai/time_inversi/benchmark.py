@@ -27,6 +27,8 @@ def main():
     parser.add_argument('--threads', type=int, default=2)
     parser.add_argument('--device', choices=['cpu', 'cuda', 'auto'], default='cpu')
     parser.add_argument('--seed', type=int, default=1234)
+    parser.add_argument('--init-model', type=Path,
+                        help='Measure from an Oracle distilled checkpoint instead of random weights')
     args = parser.parse_args()
     if min(args.games, args.simulations, args.updates, args.batch_size, args.threads) < 1:
         parser.error('Counts must be positive')
@@ -34,7 +36,16 @@ def main():
     torch.set_num_threads(args.threads)
     torch.manual_seed(args.seed)
     rng = np.random.default_rng(args.seed)
-    model = PolicyValueNet(NetworkConfig()).to(device)
+    initial_weights = None
+    if args.init_model:
+        initial_weights = torch.load(args.init_model, map_location='cpu', weights_only=True)
+        if (initial_weights.get('format') != 'time-inversi-ordinary-pretrain-v1' or
+                initial_weights.get('teacher_type') != 'oracle'):
+            parser.error('--init-model requires an Oracle distilled checkpoint')
+    model = PolicyValueNet(NetworkConfig(**initial_weights['network_config'])
+                           if initial_weights else NetworkConfig()).to(device)
+    if initial_weights:
+        model.load_state_dict(initial_weights['model'], strict=True)
     optimizer = torch.optim.AdamW(model.parameters(), lr=.001, weight_decay=.0001)
     replay = ReplayBuffer(50000)
 
@@ -73,11 +84,13 @@ def main():
     evaluation = sum(x['seconds'] for x in evaluations.values()) * 10
     report = dict(created=datetime.now().isoformat(), python=platform.python_version(),
                   torch=str(torch.__version__), processor=platform.processor(), device=str(device),
-                  config=vars(args), network=model.config_dict(), selfplay=games,
+                  config={key: str(value) if isinstance(value, Path) else value
+                          for key, value in vars(args).items()},
+                  network=model.config_dict(), selfplay=games,
                   update_seconds=update_seconds, evaluation=evaluations,
                   estimates_seconds=dict(ordinary_iteration=ordinary, evaluation_iteration=ordinary + evaluation,
                                          hundred_iterations=100 * ordinary + 20 * evaluation),
-                  caveat='Estimate from a fresh model and short sample; excludes checkpoint saving/startup. '
+                  caveat='Estimate from a short sample; excludes checkpoint saving/startup. '
                          'Game length, history length, full replay buffer and machine load can change timings. '
                          'This is not an estimate of time to reach a given playing strength.')
     output = Path(__file__).resolve().parents[1] / 'runs' / 'benchmarks'

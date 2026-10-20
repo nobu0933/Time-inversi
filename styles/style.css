@@ -54,6 +54,8 @@ button:disabled { opacity: .55; cursor: default !important; }
 .cpu-control { display: flex; flex-direction: column; align-items: center; gap: .45cqw; font-size: 1.85cqw; font-weight: 700; line-height: 1.2; color: white; }
 .cpu-control button { width: 4.25cqw; height: 4.25cqw; }
 .cpu-control button[aria-pressed="true"] { background: var(--board); color: white; transform: translateY(.45cqw); box-shadow: none; }
+.cpu-control button[data-mode="MID"] { background: #285c8c; color: white; transform: translateY(.45cqw); box-shadow: none; font-size: 1.65cqw; font-weight: 800; }
+.cpu-control button[data-mode="PRO"] { background: #304d68; color: white; transform: translateY(.45cqw); box-shadow: none; font-size: 1.65cqw; font-weight: 800; }
 .game-log { position: absolute; top: 91.4%; left: 29%; width: 42%; margin: 0; text-align: center; color: white; font-size: 3.6cqw; line-height: 1.25; white-space: nowrap; }
 #pass-overlay { position: absolute; inset: 0; z-index: 20; pointer-events: none; }
 .pass-disc { left: 41%; top: 40%; width: 18%; height: 18%; }

@@ -1,8 +1,10 @@
 # Time Inversi — Python / AlphaZero
 
-Time InversiのルールをPythonへ移植し、自己対戦・MCTS・方策／価値ネットワークによる学習を実装しています。`Time Inversi`フォルダーだけで環境構築・学習・評価できます。参考にした`AlphaZero`、`Penrosanne`、`P3NROSE`フォルダーは不要です。
+Time InversiのルールをPythonへ移植し、自己対戦・MCTS・方策／価値ネットワークによる学習を実装しています。必要な学習データが揃った`Time Inversi`フォルダーだけで環境構築・学習・評価できます。参考にした`AlphaZero`、`Penrosanne`、`P3NROSE`フォルダーは不要です。Git公開版では再配布条件が確認できていないOracle元データと派生重みを追跡していません。Oracle版PROの再学習前に[出典と注意点](pretrained/ORACLE_SOURCE.md)と[専用手順](PRO_TRAINING_GUIDE.md)を確認してください。
 
-ブラウザのランダムCPUとの接続や、学習モデルのブラウザ向け変換はまだ行っていません。このフォルダーは学習・評価・Pythonからの着手選択用です。
+新方式PROだけを最初から順に実行する場合は、[ダウンロードから学習・評価までの手順](PRO_TRAINING_GUIDE.md)を参照してください。
+
+学習済みモデルはブラウザ用ファイルへ書き出せます。現在のゲームはブラウザ内でモデルとMCTSを動かすため、公開先にPythonサーバーは不要です。
 
 ## 1. ダウンロードしたフォルダーを開く（Windows）
 
@@ -63,6 +65,44 @@ macOS / Linuxでは、環境作成を`python3 -m venv .venv`とし、以降の`.
 .\.venv\Scripts\python.exe -m time_inversi.train --iterations 100 --self-play-games 10 --simulations 64 --device cpu --output runs/experiment01
 ```
 
+### Oracle評価関数から始める新方式PRO
+
+[`mame/6x6-reversi-oracle`](https://github.com/mame/6x6-reversi-oracle)の中盤評価関数と序盤定跡をPythonへ取り込みました。定跡は通常オセロの初手から着手履歴が一致する間だけ使用し、時間反転・角の発動・定跡からの逸脱後には適用しません。その後は、終盤で完全読みできれば厳密な**通常オセロ**の石差を優先し、読み切れなければOracle評価関数で近似します。評価関数は通常オセロでは到達できない盤面も受け付けます。Oracleのネイティブ探索器は使用していません。
+
+従来の事前学習済み重み`runs/oracle-pretrain-v2.pt`は定跡追加前のOracle評価関数版です。定跡を含む新しい事前学習重みは`runs/oracle-opening-pretrain-v1.pt`です。通常オセロ1,000局面、Time Inversi由来1,000局面を教師にし、定跡89件・通常オセロの厳密解1,229件・Oracle近似評価682件でラベル化しました。8対称で16,000学習例、3,000更新しています。旧版は独立した終盤600局面で旧ニューラル教師版`ordinary-pretrain-v4.pt`の最善手一致363件に対し395件でした。新しい版の比較結果は[検証記録](VALIDATION.md)を参照してください。いずれもTime Inversiの真の最善手を測った数字ではありません。
+
+教師局面の通常オセロ比率は`--ordinary-share`で変更できます。8割に増やした新規学習版と、上記の重みから8割で追学習した版も作って比較しましたが、通常オセロ終盤の最善手一致はそれぞれ182/300・198/300で、元の201/300を上回りませんでした。そのため、自己対戦の開始には`oracle-opening-pretrain-v1.pt`を推奨します。Time Inversiの自己対戦は角での時間反転・逆行・パスを含み、自己対戦の勝敗を教師にして重みを更新します。
+
+以下は`python_ai`で実行します。現在公開中のMIDモデルを上書きしません。
+
+```powershell
+# Oracle教師だけの精度を通常局面・Time Inversi由来盤面で別集計する
+.\.venv\Scripts\python.exe -m time_inversi.ordinary_benchmark --teacher pretrained/oracle-weight.rs --teacher-type oracle --ordinary-games 20 --variant-games 20 --max-empty 6 --approximate-depth 3
+
+# 同梱済みの重みからTime Inversiの自己対戦を開始する
+.\.venv\Scripts\python.exe -m time_inversi.train --init-model runs/oracle-opening-pretrain-v1.pt --iterations 100 --self-play-games 10 --simulations 64 --output runs/transfer01
+
+# 旧MIDと黒白を交替して直接対局する
+.\.venv\Scripts\python.exe -m time_inversi.compare_models --candidate runs/transfer01/latest.pt --incumbent runs/experiment01/latest.pt --games 20 --simulations 64
+```
+
+事前学習を作り直す場合は、上の自己対戦より先に次を実行し、`--init-model`を新しいファイル名へ変更してください。
+
+```powershell
+.\.venv\Scripts\python.exe -m time_inversi.pretrain --teacher pretrained/oracle-weight.rs --teacher-type oracle --output runs/oracle-pretrain-new.pt --ordinary-games 80 --variant-games 80 --samples 2000 --updates 3000 --augment-symmetries --exact-empty 10
+```
+
+短時間の動作確認には別の出力名で次を実行します。この設定は棋力評価用ではありません。
+
+```powershell
+.\.venv\Scripts\python.exe -m time_inversi.pretrain --teacher pretrained/oracle-weight.rs --teacher-type oracle --output runs/pro-check.pt --ordinary-games 1 --variant-games 1 --samples 8 --updates 2 --batch-size 4 --channels 8 --blocks 1 --history-hidden 8 --exact-empty 2 --device cpu
+.\.venv\Scripts\python.exe -m time_inversi.train --init-model runs/pro-check.pt --iterations 1 --self-play-games 1 --simulations 2 --batch-size 8 --updates 1 --eval-every 0 --device cpu --output runs/pro-check-run
+.\.venv\Scripts\python.exe -m time_inversi.evaluate --checkpoint runs/pro-check-run/latest.pt --opponent random --games 2 --simulations 2 --device cpu
+```
+
+途中で止めた自己対戦学習は`--resume runs/transfer01/latest.pt --iterations 100`で追加学習できます。`pretrain`は中断再開できず、重みは全更新終了時に保存します。Oracle版の重みから始める100イテレーションは、このPCでの1イテレーションと評価対局の実測を外挿すると約8.4時間です。変動を見込んで8〜12時間の予定枠を取り、最初の5〜10イテレーションから残り時間を見積もってください。MIDとの追加比較は含みません。
+
+係数表の出典・ハッシュ・再配布上の注意は[ORACLE_SOURCE.md](pretrained/ORACLE_SOURCE.md)を参照してください。旧Alpha Zero General教師と事前学習重みは比較用に残しています。Oracle版も通常ルールの結果を教えるだけで、Time Inversiの勝敗を保証しません。自己対戦後にMIDとの直接対局で棋力を確認してください。ブラウザのPROにはまだ接続していません。
 1イテレーションは「自己対戦 → リプレイバッファに蓄積 → ミニバッチ学習 → 保存」です。5イテレーションごとにランダムAI・簡易貪欲AIと評価対局します。最初の12手はMCTSの訪問割合で着手を抽選し、それ以降は最多訪問手から選びます。自己対戦の探索だけにDirichletノイズを加えます。
 
 主な設定：
@@ -89,27 +129,27 @@ macOS / Linuxでは、環境作成を`python3 -m venv .venv`とし、以降の`.
 ### このPCで学習時間を測る
 
 ```powershell
-.\.venv\Scripts\python.exe -m time_inversi.benchmark
+.\.venv\Scripts\python.exe -m time_inversi.benchmark --init-model runs/oracle-opening-pretrain-v1.pt --games 3 --simulations 64 --updates 100 --batch-size 64 --device cpu --threads 2
 ```
 
-標準サイズの新規モデルで自己対戦3局（1手64探索）、バッチ64で100回の実更新、ランダムAI・簡易AIとの評価を各2局実行します。既存の学習済みモデルには触れません。CPU・2スレッドが既定です。
+指定したOracle版の重みで自己対戦3局（1手64探索）、バッチ64で100回の実更新、ランダムAI・簡易AIとの評価を各2局実行します。重みは読み込むだけで変更しません。CPU・2スレッドが既定です。`--init-model`を省略すると新規モデルを測ります。
 
 処理別の実測秒数と、通常の1イテレーション／評価付き1イテレーション／100イテレーションの推定時間を表示し、`runs/benchmarks/`にJSONで保存します。推定は自己対戦10局・更新100回、5イテレーションごとに各相手20局評価という設定です。`--simulations`で探索数、`--games`で測定局数、`--device`で実行デバイスを変更できます。
 
 短い測定からの概算で、保存・起動時間は含みません。学習に伴う対局長・履歴長の変化、バッファの蓄積、他のアプリの負荷で時間は変わります。「一定の強さになるまでの時間」を示すものではありません。
 
-2026-10-20の測定例（Intel Core i7-1165G7、CPU・2スレッド、Python 3.14.2、PyTorch 2.14.1+cpu、標準モデル、64探索）：
+2026-10-21のOracle版の測定例（Intel Core i7-1165G7、CPU・2スレッド、Python 3.14.2、PyTorch 2.14.1+cpu、64探索）：
 
 | 処理 | 所要時間 | 根拠 |
 | --- | ---: | --- |
-| 自己対戦1局 | 約14〜22秒（平均17.4秒） | 3局の実測、69〜93手 |
-| バッチ64で100回更新 | 約7.4秒 | 実測 |
-| 通常の1イテレーション | 約3分 | 自己対戦10局＋100回更新の推定 |
-| 評価付き1イテレーション | 約10.4分 | 上記＋評価40局の推定。各相手2局の実測から換算 |
-| 100イテレーション | 約7.5時間 | 自己対戦1,000局、更新10,000回、評価800局の推定 |
-| 100イテレーション・評価なし | 約5時間 | `--eval-every 0`の場合の推定 |
+| 自己対戦1局 | 約17〜40秒（平均28.7秒） | Oracle版の3局を実測、48〜97手 |
+| バッチ64で100回更新 | 約10.4秒 | 実測 |
+| 通常の1イテレーション | 約3分46秒 | Oracle版で自己対戦10局＋100回更新＋保存を実行 |
+| 評価40局 | 約6分29秒 | ランダム・greedy各2局の実測を20局ずつに換算 |
+| 100イテレーション | 約8.4時間 | 通常100回＋5回ごとの評価40局を20回 |
+| 100イテレーション・評価なし | 約6.3時間 | `--eval-every 0`の場合 |
 
-測定ログ：`runs/benchmarks/20261020-003350-063725.json`。この値は当該PCでの短期測定の外挿で、完了時間の保証ではありません。
+測定ログ：`runs/benchmarks/20261021-081753-669351.json`と`runs/oracle-timing-first-iteration/metrics.jsonl`。3局の短いベンチマークだけなら評価込みで約10.4時間と出ますが、上表は実際の10局・1イテレーションの226.1秒を優先しています。対局長、履歴長、保存サイズの変化で100回の所要時間は変わります。
 
 ## 5. 停止・保存・再開
 
@@ -138,6 +178,19 @@ macOS / Linuxでは、環境作成を`python3 -m venv .venv`とし、以降の`.
 | メモリ不足・学習が遅い | 新規学習でバッファ容量・モデル幅・探索数・バッチサイズを小さくします。再開時はモデル幅やバッファ容量を変更できません。 |
 | `exceeded max_moves` | 対局を引き分けとして扱わず停止します。必要に応じて`--max-moves`を増やして再開します。 |
 
+## ブラウザで学習済みAIと対局
+
+現在のMIDはブラウザだけで動きます。100回目のモデルを`../assets/ai/model.js`に書き出し済みです。CPUボタンは`OFF → EZY → MID → PRO`の順です。EZYはランダム、MIDは既存のブラウザモデルです。PROは新方式用の表示枠で、現在は自動着手しません。GitHub Pagesやitch.ioに公開するファイルと手順は[静的サイトへの公開](../docs/STATIC_HOSTING.md)を参照してください。
+
+追加学習した重みに差し替える場合、`python_ai`から実行します。
+
+```powershell
+.\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/experiment01/latest.pt
+```
+
+書き出し後は親フォルダーで`python scripts/package_web.py`を実行し、公開ZIPを作り直します。閲覧者にPythonやPyTorchのインストールは不要です。
+
+従来の`serve.py`の着手APIはPython版の比較用として残しています。通常のゲーム画面はそのAPIを呼ばず、同梱のブラウザ用モデルを読み込みます。`serve --checkpoint`でAPIのモデルを変えても画面側のモデルは変わらないため、画面側の更新には必ず上記の書き出しを行ってください。
 ## 評価と着手選択
 
 ```powershell
@@ -187,6 +240,8 @@ python_ai/
     train.py       # 学習コマンド
     evaluate.py    # 両色での評価
     predict.py     # 局面JSONからの着手選択
+    export_browser.py # 静的サイト用モデルの書き出し
+    serve.py       # Python推論比較用APIとローカル配信
   tests/           # JS照合、探索・学習・復元テスト
   runs/            # 重みとログ（生成物）
   requirements.txt

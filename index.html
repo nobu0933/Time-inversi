@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles/style.css">
   <script defer src="src/game/rules.js"></script>
   <script defer src="src/game/replay.js"></script>
+  <script defer src="src/ai/client.js"></script>
   <script defer src="src/ui/game.js"></script>
 </head>
 <body>
@@ -37,10 +38,10 @@
     </div>
     <div class="player-panel white-player control">
       <span class="piece white player-disc"><span class="body" aria-hidden="true"></span><span id="white-count" class="stone-count" hidden></span></span>
-      <div class="cpu-control"><span>CPU</span><button id="cpu-white" type="button" aria-label="White CPU" aria-pressed="true">ON</button></div>
+      <div class="cpu-control"><span>CPU</span><button id="cpu-white" type="button" data-mode="EZY" aria-label="White CPU: EZY" aria-pressed="true" title="White CPU: random">EZY</button></div>
     </div>
     <div class="player-panel black-player control">
-      <div class="cpu-control"><span>CPU</span><button id="cpu-black" type="button" aria-label="Black CPU" aria-pressed="false">OFF</button></div>
+      <div class="cpu-control"><span>CPU</span><button id="cpu-black" type="button" data-mode="OFF" aria-label="Black CPU: OFF" aria-pressed="false" title="Black CPU: human">OFF</button></div>
       <span class="piece player-disc"><span class="body" aria-hidden="true"></span><span id="black-count" class="stone-count" hidden></span></span>
     </div>
     <p id="log" class="game-log" role="status" aria-live="polite">Black's turn</p>

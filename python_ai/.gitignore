@@ -4,3 +4,6 @@ __pycache__/
 runs/*
 !runs/experiment01/
 *.pyc
+pretrained/oracle-weight.rs
+pretrained/oracle-opening-tree.dat
+pretrained/oracle-opening-data.dat
