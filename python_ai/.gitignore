@@ -1,5 +1,6 @@
 .venv/
 .tmp/
 __pycache__/
-runs/
+runs/*
+!runs/experiment01/
 *.pyc
