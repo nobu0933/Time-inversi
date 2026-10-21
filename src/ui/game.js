@@ -17,7 +17,7 @@
   let bgmOn = true;
   const cancelled = Symbol('cancelled');
   let { board, player, ended } = game;
-  let busy = false, hover = -1, turnTimer, logTimer, proRequest;
+  let busy = false, hover = -1, turnTimer, logTimer, aiRequest;
   let pointer = null, target = -1;
   const cursor = piece(player, 'cursor-piece');
   cursor.hidden = true;
@@ -166,7 +166,7 @@
   }
   function scheduleTurn() {
     clearTimeout(turnTimer);
-    proRequest?.abort(); proRequest = null;
+    aiRequest?.abort(); aiRequest = null;
     if (busy || ended || dialog.open || replaying) return;
     const legal = R.moves(board, player);
     if (!legal.length) turnTimer = setTimeout(() => place(null, 'auto'), 350);
@@ -174,23 +174,27 @@
       const moves = R.moves(board, player);
       if (cpu[player] === 'EZY' && moves.length) place(moves[Math.floor(Math.random() * moves.length)], 'auto');
     }, 650);
-    else if (cpu[player] === 'MID') turnTimer = setTimeout(requestMidMove, 350);
+    else if (cpu[player] === 'MID' || cpu[player] === 'PRO') {
+      const mode = cpu[player];
+      turnTimer = setTimeout(() => requestAIMove(mode), 350);
+    }
   }
-  async function requestMidMove() {
+  async function requestAIMove(mode) {
+    if (cpu[player] !== mode) return;
     const run = epoch, position = game, controller = new AbortController();
-    proRequest = controller;
+    aiRequest = controller;
     try {
-      const result = await window.ProAI.choose(position, { signal: controller.signal });
-      if (run !== epoch || position !== game || cpu[player] !== 'MID' || dialog.open || replaying) return;
+      const result = await window.ProAI.choose(position, { signal: controller.signal, mode });
+      if (run !== epoch || position !== game || cpu[player] !== mode || dialog.open || replaying) return;
       const moves = R.moves(board, player);
-      if (!Number.isInteger(result.action) || !moves.includes(result.action)) throw new Error('MID returned an illegal move');
+      if (!Number.isInteger(result.action) || !moves.includes(result.action)) throw new Error(`${mode} returned an illegal move`);
       place(result.action, 'auto');
     } catch (error) {
-      if (error.name !== 'AbortError' && run === epoch && position === game && cpu[player] === 'MID') {
+      if (error.name !== 'AbortError' && run === epoch && position === game && cpu[player] === mode) {
         console.error(error);
-        setLog('MID unavailable — reload the page');
+        setLog(`${mode} unavailable — reload the page`);
       }
-    } finally { if (proRequest === controller) proRequest = null; }
+    } finally { if (aiRequest === controller) aiRequest = null; }
   }
   async function pause(ms, run, motion = false) {
     await new Promise(resolve => setTimeout(resolve, motion && reduced.matches ? 0 : ms));
@@ -299,7 +303,7 @@
   });
   function newGame() {
     epoch++;
-    proRequest?.abort(); proRequest = null;
+    aiRequest?.abort(); aiRequest = null;
     clearTimeout(turnTimer); clearTimeout(logTimer);
     game = R.createGame(); ({ board, player, ended } = game); hover = -1;
     replayFrames = [Replay.snapshot(game)];
@@ -311,7 +315,7 @@
   }
   document.querySelector('#title').addEventListener('click', () => {
     clearTimeout(turnTimer);
-    proRequest?.abort(); proRequest = null;
+    aiRequest?.abort(); aiRequest = null;
     dialog.returnValue = ''; dialog.showModal(); preview();
   });
   dialog.addEventListener('close', () => {
@@ -332,9 +336,9 @@
       button.textContent = cpu[color];
       button.setAttribute('data-mode', cpu[color]);
       button.setAttribute('aria-pressed', String(cpu[color] !== 'OFF'));
-      button.setAttribute('aria-label', `${name(color)} CPU: ${cpu[color]}${cpu[color] === 'PRO' ? ', not available yet' : ''}`);
-      button.title = `${name(color)} CPU: ${{ OFF: 'human', EZY: 'random', MID: 'browser AI', PRO: 'not available yet' }[cpu[color]]}`;
-      if (log.textContent === 'MID unavailable — reload the page') updateLog();
+      button.setAttribute('aria-label', `${name(color)} CPU: ${cpu[color]}`);
+      button.title = `${name(color)} CPU: ${{ OFF: 'human', EZY: 'random', MID: 'browser AI', PRO: 'browser AI' }[cpu[color]]}`;
+      if (log.textContent.endsWith('unavailable — reload the page')) updateLog();
       preview(); scheduleTurn();
     });
   }

@@ -40,10 +40,12 @@ test('worker client uses relative URLs, reuses loaded model and cancels stale re
   const controller = new AbortController();
   const first = window.ProAI.choose(R.createGame(), { signal: controller.signal });
   assert.equal(workers[0].url.href, 'https://example.test/my-game/src/ai/worker.js');
+  assert.equal(workers[0].sent.mode, 'MID');
   const cancelled = assert.rejects(first, { name: 'AbortError' });
   controller.abort(); await cancelled;
   assert.equal(workers[0].stopped, true);
-  const next = window.ProAI.choose(R.createGame());
+  const next = window.ProAI.choose(R.createGame(), { mode: 'PRO' });
+  assert.equal(workers[1].sent.mode, 'PRO');
   workers[0].onmessage({ data: { id: workers[0].sent.id, action: 27 } });
   workers[1].onmessage({ data: { id: workers[1].sent.id, action: 8 } });
   assert.equal((await next).action, 8);
@@ -51,4 +53,27 @@ test('worker client uses relative URLs, reuses loaded model and cancels stale re
   assert.equal(workers.length, 2);
   workers[1].onmessage({ data: { id: workers[1].sent.id, action: 13 } });
   assert.equal((await again).action, 13);
+});
+
+test('worker loads MID and PRO weights separately and reuses each model', () => {
+  const imports = [], responses = [];
+  const context = {
+    self: { postMessage: message => responses.push(message) },
+    importScripts(...paths) {
+      imports.push(...paths);
+      if (paths.length === 1) context.TimeInversiWeights = { mode: paths[0].includes('pro-model') ? 'PRO' : 'MID' };
+    },
+    TimeInversiNetwork: class { constructor(weights) { this.mode = weights.mode; } },
+    TimeInversiSearch: class {
+      constructor(network) { this.network = network; }
+      search() { return { action: this.network.mode === 'PRO' ? 13 : 8 }; }
+    }
+  };
+  vm.runInNewContext(fs.readFileSync(require.resolve('../src/ai/worker.js'), 'utf8'), context);
+  for (const [id, mode] of [[1, 'MID'], [2, 'PRO'], [3, 'MID']])
+    context.self.onmessage({ data: { id, mode, state: R.createGame() } });
+  assert.deepEqual(responses.map(result => result.action), [8, 13, 8]);
+  assert.equal(imports.filter(path => path.includes('model.js')).length, 2);
+  assert.ok(imports.includes('../../assets/ai/model.js'));
+  assert.ok(imports.includes('../../assets/ai/pro-model.js'));
 });

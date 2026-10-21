@@ -1,10 +1,10 @@
-# 静的サイトでMIDと対局する
+# 静的サイトでMID・PROと対局する
 
-ゲーム画面、100回学習したモデル、探索処理がすべてブラウザで動きます。プレイヤーのPCにPythonを入れたり、着手用のサーバーを起動したりする必要はありません。CPUボタンは`OFF → EZY → MID → PRO → OFF`。EZYはランダム、MIDは学習済みモデル＋64回のMCTS探索です。新方式のPROは表示のみで、まだ自動着手しません。
+ゲーム画面、MID・PROの100回学習済みモデル、探索処理がすべてブラウザで動きます。プレイヤーのPCにPythonを入れたり、着手用のサーバーを起動したりする必要はありません。CPUボタンは`OFF → EZY → MID → PRO → OFF`。EZYはランダム、MID・PROはそれぞれのモデルで64回のMCTS探索を行います。
 
 ## 公開用ファイル
 
-`python scripts/package_web.py`で`dist/time-inversi-web.zip`を生成できます。ZIPの直下に`index.html`と`src`、`styles`、`assets`が入ります。モデルは`assets/ai/model.js`（約3MB）です。Python環境・学習データ・元のチェックポイントは含みません。
+`python scripts/package_web.py`で`dist/time-inversi-web.zip`を生成できます。ZIPの直下に`index.html`と`src`、`styles`、`assets`が入ります。MIDは`assets/ai/model.js`、PROは`assets/ai/pro-model.js`（各約3MB）です。Python環境・学習データ・元のチェックポイントは含みません。PROの重みはOracle由来なので、公開前に[出典と再配布上の注意](../python_ai/pretrained/ORACLE_SOURCE.md)を確認してください。
 
 コードやモデルを変更した後は、`Time Inversi`フォルダーで再作成します。
 
@@ -40,6 +40,7 @@ node scripts/preview.cjs
 
 ```powershell
 .\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/experiment01/latest.pt
+.\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/pro01/latest.pt --output ../assets/ai/pro-model.js
 ```
 
 書き出しは学習済みの推論用重みをFloat32のまま保存します。再学習や量子化は行いません。元の`latest.pt`は変更しません。ブラウザ用の書き出し後、Pythonとの照合テストを実行できます（Node.jsが必要です）。
@@ -52,6 +53,6 @@ node scripts/preview.cjs
 
 `src/ai/network.js`がCNN・GroupNorm・GRUを計算し、`search.js`がブラウザ版のルールを使って探索します。順行・逆行の履歴はパスも含めて全件使用します。`worker.js`で画面とは別に計算し、`client.js`が新規対局やCPU切り替え時に不要な探索を中止します。外部CDN、Python API、特別なクロスオリジン分離ヘッダーは不要です。
 
-初回のMID着手時だけモデルを読み込みます。考慮時間は端末性能と局面で変わります。同点候補の抽選や小さな浮動小数点誤差により、Python版と常に同じ手になるとは限りません。
+各モデルはMID・PROで最初に着手するときだけ読み込みます。考慮時間は端末性能と局面で変わります。同点候補の抽選や小さな浮動小数点誤差により、Python版と常に同じ手になるとは限りません。
 
-103局面（順行・逆行・パス・長い履歴を含む）のPython版との照合で、方策と価値の最大差は約0.000005でした。JavaScriptの42テストも成功しています。ローカルの静的配信を実際のブラウザで開き、通常表示と「サブパス＋sandbox付きiframe」の両方で白MIDの着手と次の手番への進行を確認しました。公開先へのアップロード自体は行っていません。
+順行・逆行・パス・長い履歴を含む103局面で、PROのブラウザ版とPython版の方策・価値の最大差は約0.000001でした。MIDも同じ局面で照合済みです。JavaScriptの44テストが成功しています。MIDの実ブラウザでの着手は以前確認済みで、PROの着手はモデル切り替えと画面処理のテストで確認しています。

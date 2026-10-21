@@ -1,5 +1,15 @@
 # 検証記録
 
+## 2026-10-21：新PROの100回学習とブラウザ接続
+
+Oracle定跡込み事前学習重み`oracle-opening-pretrain-v1.pt`からTime Inversi自己対戦を100イテレーション実行した。`runs/pro01/latest.pt`の保存済みイテレーションは100で、最終ログは自己対戦10局・100更新・逆行251手番・パス25回・角反転38回。ランダムAIとの20局は19勝1敗、greedy AIとの20局は17勝3敗だった。
+
+既存MIDの`runs/experiment01/latest.pt`との直接対局は、各手64探索・黒白10局ずつで新PROが12勝3分5敗（得点率67.5%）。黒番7勝3分、白番5勝5敗。20局すべてで角反転と逆行が発生した。対局結果はローカルの`runs/pro01/compare-mid.json`に保存した。20局は初期比較で、棋力差や100回以降の頭打ちを確定しない。
+
+PROの推論用重みを`assets/ai/pro-model.js`へ書き出し、MIDとPROをWorker内で別々に読み込むようにした。PROのブラウザ版とPython版を順行・逆行・パス・長い履歴を含む103局面で照合し、方策・価値の最大差は`9.1005434e-7`。MIDは最大差`2.499304e-6`。JavaScriptの44テストが成功した。初期局面の64探索でも両モデルが合法手を返した。公開用ZIPに両モデルを含め、Oracle元データ・フルチェックポイントを含まないこととCRCを確認した。実ブラウザでのPROの操作感と端末別速度は未計測。
+
+フルチェックポイントSHA-256：`9ff989b9fdd5c60f5f8e2e5e2868fef0a18bbbdee1c1ce58b856f26c77a03fc8`。ブラウザ用PROモデルSHA-256：`419edfc074f1dfe1b89814c0b905f3a57496543bb70c469cf36c73685ee6bd9a`。Oracle由来の重みの公開には[出典と再配布上の注意](pretrained/ORACLE_SOURCE.md)が適用される。
+
 ## 2026-10-21：通常オセロ局面を優先し、Time Inversi自己対戦を接続
 
 Oracle教師の局面配分を`--ordinary-share`で指定できるようにした。8割を通常オセロ由来、2割をTime Inversi由来とした`runs/oracle-opening-pretrain-v2.pt`を2,000局面・3,000更新で作成した。定跡110件、通常オセロとしての厳密解1,076件、Oracle近似814件。元の定跡込み重み`oracle-opening-pretrain-v1.pt`から同じ8割配分の1,000局面を低学習率で800更新した`oracle-opening-ordinary-focus-v1.pt`も作った。後者の教師内訳は定跡57件、厳密解540件、近似403件。

@@ -102,7 +102,7 @@ macOS / Linuxでは、環境作成を`python3 -m venv .venv`とし、以降の`.
 
 途中で止めた自己対戦学習は`--resume runs/transfer01/latest.pt --iterations 100`で追加学習できます。`pretrain`は中断再開できず、重みは全更新終了時に保存します。Oracle版の重みから始める100イテレーションは、このPCでの1イテレーションと評価対局の実測を外挿すると約8.4時間です。変動を見込んで8〜12時間の予定枠を取り、最初の5〜10イテレーションから残り時間を見積もってください。MIDとの追加比較は含みません。
 
-係数表の出典・ハッシュ・再配布上の注意は[ORACLE_SOURCE.md](pretrained/ORACLE_SOURCE.md)を参照してください。旧Alpha Zero General教師と事前学習重みは比較用に残しています。Oracle版も通常ルールの結果を教えるだけで、Time Inversiの勝敗を保証しません。自己対戦後にMIDとの直接対局で棋力を確認してください。ブラウザのPROにはまだ接続していません。
+係数表の出典・ハッシュ・再配布上の注意は[ORACLE_SOURCE.md](pretrained/ORACLE_SOURCE.md)を参照してください。旧Alpha Zero General教師と事前学習重みは比較用に残しています。Oracle版も通常ルールの結果を教えるだけで、Time Inversiの勝敗を保証しません。自己対戦後にMIDとの直接対局で棋力を確認してください。100回学習したPROのブラウザ用重みは`../assets/ai/pro-model.js`に書き出しています。
 1イテレーションは「自己対戦 → リプレイバッファに蓄積 → ミニバッチ学習 → 保存」です。5イテレーションごとにランダムAI・簡易貪欲AIと評価対局します。最初の12手はMCTSの訪問割合で着手を抽選し、それ以降は最多訪問手から選びます。自己対戦の探索だけにDirichletノイズを加えます。
 
 主な設定：
@@ -180,17 +180,19 @@ macOS / Linuxでは、環境作成を`python3 -m venv .venv`とし、以降の`.
 
 ## ブラウザで学習済みAIと対局
 
-現在のMIDはブラウザだけで動きます。100回目のモデルを`../assets/ai/model.js`に書き出し済みです。CPUボタンは`OFF → EZY → MID → PRO`の順です。EZYはランダム、MIDは既存のブラウザモデルです。PROは新方式用の表示枠で、現在は自動着手しません。GitHub Pagesやitch.ioに公開するファイルと手順は[静的サイトへの公開](../docs/STATIC_HOSTING.md)を参照してください。
+MIDとPROはブラウザだけで動きます。100回目のモデルをMIDは`../assets/ai/model.js`、PROは`../assets/ai/pro-model.js`に書き出し済みです。CPUボタンは`OFF → EZY → MID → PRO`の順です。EZYはランダムです。GitHub Pagesやitch.ioに公開するファイルと手順は[静的サイトへの公開](../docs/STATIC_HOSTING.md)を参照してください。
 
 追加学習した重みに差し替える場合、`python_ai`から実行します。
 
 ```powershell
 .\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/experiment01/latest.pt
+.\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/pro01/latest.pt --output ../assets/ai/pro-model.js
 ```
 
 書き出し後は親フォルダーで`python scripts/package_web.py`を実行し、公開ZIPを作り直します。閲覧者にPythonやPyTorchのインストールは不要です。
 
 従来の`serve.py`の着手APIはPython版の比較用として残しています。通常のゲーム画面はそのAPIを呼ばず、同梱のブラウザ用モデルを読み込みます。`serve --checkpoint`でAPIのモデルを変えても画面側のモデルは変わらないため、画面側の更新には必ず上記の書き出しを行ってください。
+
 ## 評価と着手選択
 
 ```powershell

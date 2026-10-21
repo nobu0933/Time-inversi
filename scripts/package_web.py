@@ -8,8 +8,9 @@ output.parent.mkdir(exist_ok=True)
 files = [root / 'index.html']
 for directory in ('src', 'styles', 'assets'):
     files.extend(sorted((root / directory).rglob('*')))
-if not (root / 'assets/ai/model.js').is_file():
-    raise SystemExit('Export the browser model before packaging')
+for model in ('model.js', 'pro-model.js'):
+    if not (root / 'assets/ai' / model).is_file():
+        raise SystemExit(f'Export {model} before packaging')
 with ZipFile(output, 'w', compression=ZIP_DEFLATED) as archive:
     for file in files:
         if file.is_file():

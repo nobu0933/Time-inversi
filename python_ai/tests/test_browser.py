@@ -14,13 +14,14 @@ from time_inversi.rules import create_game, legal_actions, step
 
 ROOT = Path(__file__).resolve().parents[2]
 CHECKPOINT = ROOT / 'python_ai/runs/experiment01/latest.pt'
+PRO_CHECKPOINT = ROOT / 'python_ai/runs/pro01/latest.pt'
 
 
 @unittest.skipUnless(shutil.which('node') and CHECKPOINT.exists(), 'Browser parity needs Node.js and the original checkpoint')
 class BrowserInferenceTests(unittest.TestCase):
-    def test_shipped_model_matches_python_with_complete_histories(self):
+    def _compare_model(self, checkpoint, asset):
         torch.set_num_threads(2)
-        model, _ = load(CHECKPOINT)
+        model, _ = load(checkpoint)
         rng = random.Random(701)
         states = [create_game()]
         for _ in range(4):
@@ -36,7 +37,7 @@ class BrowserInferenceTests(unittest.TestCase):
         states.append(blocked)
         self.assertTrue(any(s.direction == -1 for s in states))
         process = subprocess.run(['node', str(Path(__file__).with_name('browser_inference.cjs')),
-                                  str(ROOT / 'assets/ai/model.js')],
+                                  str(ROOT / asset)],
                                  input=json.dumps([s.to_dict() for s in states]), text=True,
                                  capture_output=True, check=True)
         predictions = json.loads(process.stdout)
@@ -47,4 +48,11 @@ class BrowserInferenceTests(unittest.TestCase):
             np.testing.assert_allclose(actual['policy'], policy, atol=2e-5, rtol=2e-5)
             self.assertAlmostEqual(actual['value'], value, delta=2e-5)
             errors.append(max(np.max(np.abs(policy - actual['policy'])), abs(value - actual['value'])))
-        print(f'Browser/Python: {len(states)} states, maximum error {max(errors):.8g}')
+        print(f'{asset}: {len(states)} states, maximum error {max(errors):.8g}')
+
+    def test_shipped_mid_matches_python_with_complete_histories(self):
+        self._compare_model(CHECKPOINT, 'assets/ai/model.js')
+
+    @unittest.skipUnless(PRO_CHECKPOINT.exists(), 'PRO parity needs the local training checkpoint')
+    def test_shipped_pro_matches_python_with_complete_histories(self):
+        self._compare_model(PRO_CHECKPOINT, 'assets/ai/pro-model.js')

@@ -20,7 +20,7 @@ Test-Path runs/oracle-opening-pretrain-v1.pt
 Test-Path runs/experiment01/latest.pt
 ```
 
-学習コード・Oracle係数表・2つの定跡データの`Test-Path`は`True`である必要があります。`runs/oracle-opening-pretrain-v1.pt`は完成済みの事前学習重みで、これも`True`なら手順3から始められます。`False`なら後述の「事前学習を作り直す」を先に実行します。`runs/experiment01/latest.pt`は比較相手のMIDで、`False`でも新PROの学習とランダム／greedy相手の評価はできます。Git公開版には、再配布条件が確認できていないOracleの係数表・定跡データ・派生重みを含めません。GitHubから取得した場合は[出典と注意点](pretrained/ORACLE_SOURCE.md)を確認し、利用権限を確かめたうえで別途これらを用意してください。Web公開用ZIPには学習コードも含まれません。
+学習コード・Oracle係数表・2つの定跡データの`Test-Path`は`True`である必要があります。`runs/oracle-opening-pretrain-v1.pt`は完成済みの事前学習重みで、これも`True`なら手順3から始められます。`False`なら後述の「事前学習を作り直す」を先に実行します。`runs/experiment01/latest.pt`は比較相手のMIDで、`False`でも新PROの学習とランダム／greedy相手の評価はできます。Git公開版にはOracleの係数表・定跡データ・事前学習重み・フルチェックポイントを含めません。ブラウザ用PROの推論重みもOracle由来なので、公開前に[出典と再配布上の注意](pretrained/ORACLE_SOURCE.md)を確認してください。GitHubから取得した場合、再学習用の元データは別途用意する必要があります。Web公開用ZIPには学習コードを含めません。
 
 ## 2. このPC専用のPython環境を作る
 
@@ -81,7 +81,11 @@ MIDの`runs/experiment01/latest.pt`もある場合、最後に両モデルを黒
 .\.venv-pro\Scripts\python.exe -m time_inversi.compare_models --candidate runs/pro01/latest.pt --incumbent runs/experiment01/latest.pt --games 20 --simulations 64 --device cpu
 ```
 
-結果の`wins`、`draws`、`losses`、`by_color`を確認してください。20局は初期比較であり、棋力差を確定するには局数と乱数種を増やす必要があります。学習が完了してもWeb画面のPROへは自動接続されません。現在ブラウザで動くMIDの重みも変更しません。
+結果の`wins`、`draws`、`losses`、`by_color`を確認してください。20局は初期比較であり、棋力差を確定するには局数と乱数種を増やす必要があります。学習後のモデルをWeb画面へ反映するには、次の書き出しを実行します。MIDの重みは変更しません。
+
+```powershell
+.\.venv-pro\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/pro01/latest.pt --output ../assets/ai/pro-model.js
+```
 
 ## 事前学習を作り直す場合のみ
 

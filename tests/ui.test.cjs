@@ -58,7 +58,7 @@ test('white CPU plays after black; BGM switches its supplied icon', async () => 
   assert.equal(ui.ids.log.textContent, "Black's turn");
 });
 
-test('CPU cycles OFF, EZY, MID, PRO; MID uses the browser model and PRO waits', async () => {
+test('CPU cycles OFF, EZY, MID, PRO; MID uses the browser model', async () => {
   const requests = [];
   const ui = app(R.createGame(), (state, options) => {
     requests.push({ state, options });
@@ -69,12 +69,26 @@ test('CPU cycles OFF, EZY, MID, PRO; MID uses the browser model and PRO waits', 
   await ui.tick(350);
   assert.equal(requests.length, 1);
   assert.equal(requests[0].state.player, R.BLACK);
+  assert.equal(requests[0].options.mode, 'MID');
   await ui.tick(500);
   assert.match(ui.ids.cells.children[8].attrs['aria-label'], /Black/);
   ui.click('cpu-black'); assert.equal(ui.ids['cpu-black'].textContent, 'PRO');
-  await ui.tick(1000);
-  assert.equal(requests.length, 1);
   ui.click('cpu-black'); assert.equal(ui.ids['cpu-black'].textContent, 'OFF');
+});
+
+test('PRO requests the trained browser model and plays a legal move', async () => {
+  const requests = [];
+  const ui = app(R.createGame(), (state, options) => {
+    requests.push({ state, options });
+    return Promise.resolve({ action: 8 });
+  });
+  ui.click('cpu-black'); ui.click('cpu-black'); ui.click('cpu-black');
+  assert.equal(ui.ids['cpu-black'].textContent, 'PRO');
+  await ui.tick(350);
+  assert.equal(requests.length, 1);
+  assert.equal(requests[0].options.mode, 'PRO');
+  await ui.tick(500);
+  assert.match(ui.ids.cells.children[8].attrs['aria-label'], /Black/);
 });
 
 test('a MID response is discarded after changing CPU mode', async () => {

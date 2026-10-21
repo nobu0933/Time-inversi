@@ -8,7 +8,7 @@
     if (pending) { const task = pending; pending = null; task.cleanup(); task.reject(error); }
   }
   window.ProAI = {
-    choose(state, { signal } = {}) {
+    choose(state, { signal, mode = 'MID' } = {}) {
       if (pending) stop(new DOMException('Superseded', 'AbortError'));
       if (signal?.aborted) return Promise.reject(new DOMException('Aborted', 'AbortError'));
       return new Promise((resolve, reject) => {
@@ -25,9 +25,9 @@
               if (data.error) task.reject(new Error(data.error));
               else task.resolve({ action: data.action });
             };
-            worker.onerror = event => { event.preventDefault(); stop(new Error('Unable to load MID model')); };
+            worker.onerror = event => { event.preventDefault(); stop(new Error('Unable to load browser AI model')); };
           }
-          worker.postMessage({ id, state });
+          worker.postMessage({ id, state, mode });
         } catch (error) { stop(error); }
       });
     }
