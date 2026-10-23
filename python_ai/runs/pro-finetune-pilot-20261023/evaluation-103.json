@@ -1,0 +1,274 @@
+{
+  "iteration": 103,
+  "simulations": 64,
+  "results": {
+    "pro100": {
+      "games": 10,
+      "simulations": 64,
+      "wins": 5,
+      "draws": 0,
+      "losses": 5,
+      "score_rate": 0.5,
+      "by_color": {
+        "black": {
+          "wins": 4,
+          "draws": 0,
+          "losses": 1
+        },
+        "white": {
+          "wins": 1,
+          "draws": 0,
+          "losses": 4
+        }
+      },
+      "games_with_inversion": 10,
+      "games_with_reverse": 10,
+      "results": [
+        {
+          "game": 1,
+          "candidate_color": 1,
+          "result": -1,
+          "turns": 78,
+          "black": 3,
+          "white": 33,
+          "passes": 4,
+          "inversions": 4,
+          "reverse_turns": 35
+        },
+        {
+          "game": 2,
+          "candidate_color": -1,
+          "result": -1,
+          "turns": 97,
+          "black": 32,
+          "white": 4,
+          "passes": 6,
+          "inversions": 4,
+          "reverse_turns": 38
+        },
+        {
+          "game": 3,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 69,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 30
+        },
+        {
+          "game": 4,
+          "candidate_color": -1,
+          "result": 1,
+          "turns": 84,
+          "black": 14,
+          "white": 22,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 30
+        },
+        {
+          "game": 5,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 69,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 30
+        },
+        {
+          "game": 6,
+          "candidate_color": -1,
+          "result": -1,
+          "turns": 97,
+          "black": 32,
+          "white": 4,
+          "passes": 6,
+          "inversions": 4,
+          "reverse_turns": 38
+        },
+        {
+          "game": 7,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 69,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 30
+        },
+        {
+          "game": 8,
+          "candidate_color": -1,
+          "result": -1,
+          "turns": 97,
+          "black": 32,
+          "white": 4,
+          "passes": 6,
+          "inversions": 4,
+          "reverse_turns": 38
+        },
+        {
+          "game": 9,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 69,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 30
+        },
+        {
+          "game": 10,
+          "candidate_color": -1,
+          "result": -1,
+          "turns": 97,
+          "black": 32,
+          "white": 4,
+          "passes": 6,
+          "inversions": 4,
+          "reverse_turns": 38
+        }
+      ]
+    },
+    "mid": {
+      "games": 10,
+      "simulations": 64,
+      "wins": 5,
+      "draws": 4,
+      "losses": 1,
+      "score_rate": 0.7,
+      "by_color": {
+        "black": {
+          "wins": 5,
+          "draws": 0,
+          "losses": 0
+        },
+        "white": {
+          "wins": 0,
+          "draws": 4,
+          "losses": 1
+        }
+      },
+      "games_with_inversion": 10,
+      "games_with_reverse": 10,
+      "results": [
+        {
+          "game": 1,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 50,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 8
+        },
+        {
+          "game": 2,
+          "candidate_color": -1,
+          "result": 0,
+          "turns": 65,
+          "black": 18,
+          "white": 18,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 20
+        },
+        {
+          "game": 3,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 50,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 8
+        },
+        {
+          "game": 4,
+          "candidate_color": -1,
+          "result": 0,
+          "turns": 65,
+          "black": 18,
+          "white": 18,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 20
+        },
+        {
+          "game": 5,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 50,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 8
+        },
+        {
+          "game": 6,
+          "candidate_color": -1,
+          "result": 0,
+          "turns": 65,
+          "black": 18,
+          "white": 18,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 20
+        },
+        {
+          "game": 7,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 50,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 8
+        },
+        {
+          "game": 8,
+          "candidate_color": -1,
+          "result": -1,
+          "turns": 67,
+          "black": 25,
+          "white": 11,
+          "passes": 2,
+          "inversions": 4,
+          "reverse_turns": 20
+        },
+        {
+          "game": 9,
+          "candidate_color": 1,
+          "result": 1,
+          "turns": 50,
+          "black": 19,
+          "white": 17,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 8
+        },
+        {
+          "game": 10,
+          "candidate_color": -1,
+          "result": 0,
+          "turns": 65,
+          "black": 18,
+          "white": 18,
+          "passes": 0,
+          "inversions": 4,
+          "reverse_turns": 20
+        }
+      ]
+    }
+  }
+}

@@ -23,7 +23,7 @@ Python版ルールとAlphaZero方式の自己対戦学習は [学習環境の導
 
 新方式PROをダウンロード後に学習する場合は、[PRO専用の実行手順](python_ai/PRO_TRAINING_GUIDE.md)を参照してください。
 
-Git公開用のフォルダーではOracleの係数表・定跡データと事前学習重みを追跡対象から外しています。ブラウザ用PROモデルもOracle由来の重みなので、公開前に[出典と再配布上の注意](python_ai/pretrained/ORACLE_SOURCE.md)を確認してください。GitHubから取得したフォルダーだけでOracle版PROを再学習するには、元データを別途用意する必要があります。
+Git用フォルダーにはOracleの係数表・定跡データ、推奨事前学習重み、102回目からの追加学習に必要な保存点を含めています。Python環境は各PCで作成します。学習データの説明は[ORACLE_SOURCE.md](python_ai/pretrained/ORACLE_SOURCE.md)に記載しています。
 
 ローカルプレビュー: `node scripts/preview.cjs` を実行して `http://127.0.0.1:4173` を開きます。
 

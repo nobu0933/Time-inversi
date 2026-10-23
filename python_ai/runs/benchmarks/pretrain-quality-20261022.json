@@ -1,0 +1,1586 @@
+{
+  "seed": 20261022,
+  "empty_range": [
+    4,
+    6
+  ],
+  "positions_per_group": 40,
+  "groups": {
+    "ordinary": {
+      "attempted_games": 40,
+      "search_limits": 0,
+      "rows": [
+        {
+          "empty": 4,
+          "best": [
+            26,
+            31
+          ],
+          "exact_value": 32,
+          "teacher": {
+            "action": 31,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 31,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            23
+          ],
+          "exact_value": -4,
+          "teacher": {
+            "action": 23,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 23,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            30,
+            33
+          ],
+          "exact_value": -2,
+          "teacher": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 33,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": -12,
+          "teacher": {
+            "action": 35,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            3,
+            29,
+            31
+          ],
+          "exact_value": -6,
+          "teacher": {
+            "action": 3,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            1
+          ],
+          "exact_value": 8,
+          "teacher": {
+            "action": 1,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            7,
+            11
+          ],
+          "exact_value": -4,
+          "teacher": {
+            "action": 12,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          },
+          "student": {
+            "action": 7,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            35
+          ],
+          "exact_value": -6,
+          "teacher": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            22
+          ],
+          "exact_value": -24,
+          "teacher": {
+            "action": 22,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 22,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            13
+          ],
+          "exact_value": 10,
+          "teacher": {
+            "action": 13,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 24,
+            "optimal": false,
+            "regret": 12,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": 6,
+          "teacher": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            12
+          ],
+          "exact_value": 2,
+          "teacher": {
+            "action": 12,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 12,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            30
+          ],
+          "exact_value": 8,
+          "teacher": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": -10,
+          "teacher": {
+            "action": 30,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            24
+          ],
+          "exact_value": 6,
+          "teacher": {
+            "action": 32,
+            "optimal": false,
+            "regret": 18,
+            "missed_win": true
+          },
+          "student": {
+            "action": 34,
+            "optimal": false,
+            "regret": 20,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 6,
+          "teacher": {
+            "action": 2,
+            "optimal": false,
+            "regret": 14,
+            "missed_win": true
+          },
+          "student": {
+            "action": 5,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            3
+          ],
+          "exact_value": -8,
+          "teacher": {
+            "action": 3,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 3,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            32,
+            34
+          ],
+          "exact_value": 2,
+          "teacher": {
+            "action": 13,
+            "optimal": false,
+            "regret": 12,
+            "missed_win": true
+          },
+          "student": {
+            "action": 10,
+            "optimal": false,
+            "regret": 10,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            0
+          ],
+          "exact_value": 4,
+          "teacher": {
+            "action": 18,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 18,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            34
+          ],
+          "exact_value": -11,
+          "teacher": {
+            "action": 34,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 34,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            1
+          ],
+          "exact_value": -14,
+          "teacher": {
+            "action": 6,
+            "optimal": false,
+            "regret": 10,
+            "missed_win": false
+          },
+          "student": {
+            "action": 6,
+            "optimal": false,
+            "regret": 10,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            33
+          ],
+          "exact_value": 16,
+          "teacher": {
+            "action": 30,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            28
+          ],
+          "exact_value": -16,
+          "teacher": {
+            "action": 18,
+            "optimal": false,
+            "regret": 10,
+            "missed_win": false
+          },
+          "student": {
+            "action": 11,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": -8,
+          "teacher": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 18,
+          "teacher": {
+            "action": 1,
+            "optimal": false,
+            "regret": 34,
+            "missed_win": true
+          },
+          "student": {
+            "action": 5,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            25
+          ],
+          "exact_value": -6,
+          "teacher": {
+            "action": 25,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 25,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            30
+          ],
+          "exact_value": 4,
+          "teacher": {
+            "action": 12,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            23,
+            34
+          ],
+          "exact_value": 2,
+          "teacher": {
+            "action": 34,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 23,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0,
+            4
+          ],
+          "exact_value": 36,
+          "teacher": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 5,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            17
+          ],
+          "exact_value": -12,
+          "teacher": {
+            "action": 17,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 11,
+            "optimal": false,
+            "regret": 16,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            8
+          ],
+          "exact_value": 20,
+          "teacher": {
+            "action": 32,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          },
+          "student": {
+            "action": 18,
+            "optimal": false,
+            "regret": 8,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            6
+          ],
+          "exact_value": -2,
+          "teacher": {
+            "action": 11,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            0,
+            11
+          ],
+          "exact_value": -8,
+          "teacher": {
+            "action": 3,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            35
+          ],
+          "exact_value": 16,
+          "teacher": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35
+          ],
+          "exact_value": -6,
+          "teacher": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 31,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            6,
+            29
+          ],
+          "exact_value": -20,
+          "teacher": {
+            "action": 6,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 6,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            0
+          ],
+          "exact_value": -16,
+          "teacher": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            4
+          ],
+          "exact_value": 6,
+          "teacher": {
+            "action": 4,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 12,
+            "optimal": false,
+            "regret": 20,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 0,
+          "teacher": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            36
+          ],
+          "exact_value": -26,
+          "teacher": {
+            "action": 36,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 36,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        }
+      ],
+      "teacher": {
+        "optimal": 25,
+        "total": 40,
+        "mean_stone_regret": 3.2,
+        "missed_wins": 4
+      },
+      "student": {
+        "optimal": 23,
+        "total": 40,
+        "mean_stone_regret": 3.3,
+        "missed_wins": 4
+      }
+    },
+    "time_inversi": {
+      "attempted_games": 40,
+      "search_limits": 0,
+      "rows": [
+        {
+          "empty": 6,
+          "best": [
+            2,
+            18
+          ],
+          "exact_value": 10,
+          "teacher": {
+            "action": 18,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 18,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": 2,
+          "teacher": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            4
+          ],
+          "exact_value": 0,
+          "teacher": {
+            "action": 4,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": false,
+            "regret": 12,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            4,
+            13
+          ],
+          "exact_value": -18,
+          "teacher": {
+            "action": 4,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 13,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            35
+          ],
+          "exact_value": 0,
+          "teacher": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            18
+          ],
+          "exact_value": 10,
+          "teacher": {
+            "action": 4,
+            "optimal": false,
+            "regret": 11,
+            "missed_win": true
+          },
+          "student": {
+            "action": 12,
+            "optimal": false,
+            "regret": 22,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            26
+          ],
+          "exact_value": 11,
+          "teacher": {
+            "action": 26,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 26,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            3,
+            35
+          ],
+          "exact_value": -6,
+          "teacher": {
+            "action": 5,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 23,
+            "optimal": false,
+            "regret": 18,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            8
+          ],
+          "exact_value": 10,
+          "teacher": {
+            "action": 8,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 8,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            17
+          ],
+          "exact_value": -10,
+          "teacher": {
+            "action": 17,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 33,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            12
+          ],
+          "exact_value": 10,
+          "teacher": {
+            "action": 30,
+            "optimal": false,
+            "regret": 16,
+            "missed_win": true
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 16,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 6,
+          "teacher": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            8,
+            24
+          ],
+          "exact_value": 0,
+          "teacher": {
+            "action": 8,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            7
+          ],
+          "exact_value": 20,
+          "teacher": {
+            "action": 27,
+            "optimal": false,
+            "regret": 8,
+            "missed_win": false
+          },
+          "student": {
+            "action": 11,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": 14,
+          "teacher": {
+            "action": 5,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          },
+          "student": {
+            "action": 5,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35
+          ],
+          "exact_value": -4,
+          "teacher": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            27
+          ],
+          "exact_value": 2,
+          "teacher": {
+            "action": 8,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": true
+          },
+          "student": {
+            "action": 33,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            12
+          ],
+          "exact_value": 6,
+          "teacher": {
+            "action": 12,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 33,
+            "optimal": false,
+            "regret": 16,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5
+          ],
+          "exact_value": 8,
+          "teacher": {
+            "action": 29,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 5,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            18,
+            35
+          ],
+          "exact_value": 33,
+          "teacher": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            18,
+            32
+          ],
+          "exact_value": 24,
+          "teacher": {
+            "action": 3,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 12,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            31
+          ],
+          "exact_value": 16,
+          "teacher": {
+            "action": 31,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 0,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            34
+          ],
+          "exact_value": 2,
+          "teacher": {
+            "action": 27,
+            "optimal": false,
+            "regret": 14,
+            "missed_win": true
+          },
+          "student": {
+            "action": 27,
+            "optimal": false,
+            "regret": 14,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            24
+          ],
+          "exact_value": -16,
+          "teacher": {
+            "action": 24,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 24,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            9
+          ],
+          "exact_value": 16,
+          "teacher": {
+            "action": 30,
+            "optimal": false,
+            "regret": 22,
+            "missed_win": true
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 22,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            17
+          ],
+          "exact_value": 6,
+          "teacher": {
+            "action": 29,
+            "optimal": false,
+            "regret": 8,
+            "missed_win": true
+          },
+          "student": {
+            "action": 17,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            29
+          ],
+          "exact_value": 16,
+          "teacher": {
+            "action": 27,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 5,
+            "optimal": false,
+            "regret": 10,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            17
+          ],
+          "exact_value": -4,
+          "teacher": {
+            "action": 32,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          },
+          "student": {
+            "action": 17,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            31
+          ],
+          "exact_value": 18,
+          "teacher": {
+            "action": 17,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          },
+          "student": {
+            "action": 30,
+            "optimal": false,
+            "regret": 5,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            24
+          ],
+          "exact_value": -12,
+          "teacher": {
+            "action": 4,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": false,
+            "regret": 18,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0,
+            34
+          ],
+          "exact_value": 23,
+          "teacher": {
+            "action": 0,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 34,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            8
+          ],
+          "exact_value": 26,
+          "teacher": {
+            "action": 17,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          },
+          "student": {
+            "action": 7,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            26
+          ],
+          "exact_value": -10,
+          "teacher": {
+            "action": 26,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 26,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 14,
+          "teacher": {
+            "action": 5,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 5,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            17
+          ],
+          "exact_value": 14,
+          "teacher": {
+            "action": 35,
+            "optimal": false,
+            "regret": 6,
+            "missed_win": false
+          },
+          "student": {
+            "action": 23,
+            "optimal": false,
+            "regret": 12,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            35
+          ],
+          "exact_value": -14,
+          "teacher": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 35,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            12
+          ],
+          "exact_value": 16,
+          "teacher": {
+            "action": 12,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 12,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            8
+          ],
+          "exact_value": 16,
+          "teacher": {
+            "action": 12,
+            "optimal": false,
+            "regret": 2,
+            "missed_win": false
+          },
+          "student": {
+            "action": 3,
+            "optimal": false,
+            "regret": 4,
+            "missed_win": false
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            32
+          ],
+          "exact_value": 10,
+          "teacher": {
+            "action": 32,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 2,
+            "optimal": false,
+            "regret": 12,
+            "missed_win": true
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5,
+            17,
+            29,
+            31
+          ],
+          "exact_value": -8,
+          "teacher": {
+            "action": 5,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          },
+          "student": {
+            "action": 5,
+            "optimal": true,
+            "regret": 0,
+            "missed_win": false
+          }
+        }
+      ],
+      "teacher": {
+        "optimal": 22,
+        "total": 40,
+        "mean_stone_regret": 2.975,
+        "missed_wins": 6
+      },
+      "student": {
+        "optimal": 19,
+        "total": 40,
+        "mean_stone_regret": 5.525,
+        "missed_wins": 7
+      }
+    }
+  }
+}

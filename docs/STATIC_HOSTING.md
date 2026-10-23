@@ -4,7 +4,7 @@
 
 ## 公開用ファイル
 
-`python scripts/package_web.py`で`dist/time-inversi-web.zip`を生成できます。ZIPの直下に`index.html`と`src`、`styles`、`assets`が入ります。MIDは`assets/ai/model.js`、PROは`assets/ai/pro-model.js`（各約3MB）です。Python環境・学習データ・元のチェックポイントは含みません。PROの重みはOracle由来なので、公開前に[出典と再配布上の注意](../python_ai/pretrained/ORACLE_SOURCE.md)を確認してください。
+`python scripts/package_web.py`で`dist/time-inversi-web.zip`を生成できます。ZIPの直下に`index.html`と`src`、`styles`、`assets`が入ります。MIDは`assets/ai/model.js`、PROは`assets/ai/pro-model.js`（各約3MB）です。Python環境・学習データ・元のチェックポイントは含みません。
 
 コードやモデルを変更した後は、`Time Inversi`フォルダーで再作成します。
 

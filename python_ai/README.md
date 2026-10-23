@@ -1,8 +1,12 @@
 # Time Inversi — Python / AlphaZero
 
-Time InversiのルールをPythonへ移植し、自己対戦・MCTS・方策／価値ネットワークによる学習を実装しています。必要な学習データが揃った`Time Inversi`フォルダーだけで環境構築・学習・評価できます。参考にした`AlphaZero`、`Penrosanne`、`P3NROSE`フォルダーは不要です。Git公開版では再配布条件が確認できていないOracle元データと派生重みを追跡していません。Oracle版PROの再学習前に[出典と注意点](pretrained/ORACLE_SOURCE.md)と[専用手順](PRO_TRAINING_GUIDE.md)を確認してください。
+Time InversiのルールをPythonへ移植し、自己対戦・MCTS・方策／価値ネットワークによる学習を実装しています。必要な学習データが揃った`Time Inversi`フォルダーだけで環境構築・学習・評価できます。参考にした`AlphaZero`、`Penrosanne`、`P3NROSE`フォルダーは不要です。Git用フォルダーにもOracle元データ・推奨事前学習重み・102回目の追加学習用保存点を含めます。Oracle版PROの再学習前に[専用手順](PRO_TRAINING_GUIDE.md)を確認してください。
 
 新方式PROだけを最初から順に実行する場合は、[ダウンロードから学習・評価までの手順](PRO_TRAINING_GUIDE.md)を参照してください。
+
+100回学習済みPROをMID・100回時点のPROとの対局も含めて追加学習する場合は、[最終調整の手順](docs/PRO_FINETUNING.md)を参照してください。ブラウザ用`pro-model.js`からは学習を再開できず、フルチェックポイントが必要です。
+
+102回目の有望な候補から70イテレーション継続する場合は、[102回目からの本学習手順](docs/PRO_LONG_TRAINING_FROM_102.md)を参照してください。実測に基づく所要時間と、中断後に同じコマンドで再開する方法を記載しています。
 
 学習済みモデルはブラウザ用ファイルへ書き出せます。現在のゲームはブラウザ内でモデルとMCTSを動かすため、公開先にPythonサーバーは不要です。
 
@@ -51,7 +55,7 @@ macOS / Linuxでは、環境作成を`python3 -m venv .venv`とし、以降の`.
 .\.venv\Scripts\python.exe -m time_inversi.train --iterations 1 --self-play-games 2 --simulations 4 --batch-size 8 --updates 2 --channels 16 --blocks 1 --history-hidden 16 --eval-every 1 --eval-games 2 --device cpu --output runs/check
 ```
 
-`runs/smoke`は開発時の動作確認用です。そこにある重みは短時間の検証用であり、強さを保証する学習済みAIではありません。
+`runs/smoke`は開発時の動作確認ログです。短時間の検証で使った重みは容量整理のため削除済みで、強さを保証する学習済みAIではありません。
 
 成功すると`runs/check/latest.pt`と`runs/check/metrics.jsonl`が生成されます。表示された`updates`が2で、`loss`が数値になり、評価結果も出ていれば、自己対戦から学習・保存・評価まで完了しています。再実行時は別の出力名を選ぶか、次で続きから実行してください。
 
@@ -102,7 +106,7 @@ macOS / Linuxでは、環境作成を`python3 -m venv .venv`とし、以降の`.
 
 途中で止めた自己対戦学習は`--resume runs/transfer01/latest.pt --iterations 100`で追加学習できます。`pretrain`は中断再開できず、重みは全更新終了時に保存します。Oracle版の重みから始める100イテレーションは、このPCでの1イテレーションと評価対局の実測を外挿すると約8.4時間です。変動を見込んで8〜12時間の予定枠を取り、最初の5〜10イテレーションから残り時間を見積もってください。MIDとの追加比較は含みません。
 
-係数表の出典・ハッシュ・再配布上の注意は[ORACLE_SOURCE.md](pretrained/ORACLE_SOURCE.md)を参照してください。旧Alpha Zero General教師と事前学習重みは比較用に残しています。Oracle版も通常ルールの結果を教えるだけで、Time Inversiの勝敗を保証しません。自己対戦後にMIDとの直接対局で棋力を確認してください。100回学習したPROのブラウザ用重みは`../assets/ai/pro-model.js`に書き出しています。
+係数表の出典とハッシュは[ORACLE_SOURCE.md](pretrained/ORACLE_SOURCE.md)を参照してください。旧Alpha Zero General教師の重みは現行学習に不要なため、Git用フォルダーから除いています。Oracle版も通常ルールの結果を教えるだけで、Time Inversiの勝敗を保証しません。自己対戦後にMIDとの直接対局で棋力を確認してください。100回学習したPROのブラウザ用重みは`../assets/ai/pro-model.js`に書き出しています。
 1イテレーションは「自己対戦 → リプレイバッファに蓄積 → ミニバッチ学習 → 保存」です。5イテレーションごとにランダムAI・簡易貪欲AIと評価対局します。最初の12手はMCTSの訪問割合で着手を抽選し、それ以降は最多訪問手から選びます。自己対戦の探索だけにDirichletノイズを加えます。
 
 主な設定：

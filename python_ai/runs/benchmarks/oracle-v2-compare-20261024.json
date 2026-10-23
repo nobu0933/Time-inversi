@@ -1,0 +1,5485 @@
+{
+  "seed": 20261024,
+  "empty_range": [
+    4,
+    6
+  ],
+  "groups": {
+    "ordinary": {
+      "summary": {
+        "ordinary-pretrain-v4": {
+          "optimal": 56,
+          "total": 100,
+          "mean_stone_regret": 3.78,
+          "missed_wins": 9
+        },
+        "oracle-pretrain-v1": {
+          "optimal": 60,
+          "total": 100,
+          "mean_stone_regret": 4.11,
+          "missed_wins": 9
+        },
+        "oracle-pretrain-v2": {
+          "optimal": 62,
+          "total": 100,
+          "mean_stone_regret": 3.29,
+          "missed_wins": 7
+        }
+      },
+      "rows": [
+        {
+          "empty": 5,
+          "best": [
+            33
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            7
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 18,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 7,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 29,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            4
+          ],
+          "exact_value": 6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 4,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": 6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 24,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            31
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 18,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 18,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 24,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5
+          ],
+          "exact_value": -14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 8,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            32,
+            34
+          ],
+          "exact_value": -22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            32
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            17
+          ],
+          "exact_value": 22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": false,
+              "regret": 16,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0
+          ],
+          "exact_value": 24,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 25,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            35
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            17
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            17
+          ],
+          "exact_value": 14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": false,
+              "regret": 16,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            6
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 6,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 6,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            34
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 10,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 10,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 10,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            22
+          ],
+          "exact_value": 19,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 1,
+              "optimal": false,
+              "regret": 21,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 22,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 22,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5
+          ],
+          "exact_value": -12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            24
+          ],
+          "exact_value": 6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            24
+          ],
+          "exact_value": -28,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            2
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            3
+          ],
+          "exact_value": -28,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            30
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            32
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 23,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 26,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            17
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 23,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            27
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            3
+          ],
+          "exact_value": 30,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": 26,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 3,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 25,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            1
+          ],
+          "exact_value": 34,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 16,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 16,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0,
+            12,
+            22
+          ],
+          "exact_value": -8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 22,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 6,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            6,
+            34
+          ],
+          "exact_value": -16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 6,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            2
+          ],
+          "exact_value": 6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 11,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            34
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            3,
+            18
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0,
+            12,
+            17
+          ],
+          "exact_value": -8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            11
+          ],
+          "exact_value": 20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 11,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 8,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            29
+          ],
+          "exact_value": -22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 29,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 29,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 29,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            18
+          ],
+          "exact_value": 12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            4
+          ],
+          "exact_value": -12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 4,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 4,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 4,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            25
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 25,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 11,
+              "optimal": false,
+              "regret": 26,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 25,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            26
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            12
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 32,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            32
+          ],
+          "exact_value": 12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            23
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": false,
+              "regret": 13,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35
+          ],
+          "exact_value": 14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 24,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            27
+          ],
+          "exact_value": -22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0
+          ],
+          "exact_value": -16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            18
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 16,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 11,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 18,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            33
+          ],
+          "exact_value": -3,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 4,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            33
+          ],
+          "exact_value": 6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 29,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            5
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 11,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            33
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5,
+            26
+          ],
+          "exact_value": 8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            3
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            10
+          ],
+          "exact_value": 15,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": false,
+              "regret": 7,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": false,
+              "regret": 7,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 6,
+              "optimal": false,
+              "regret": 7,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            18
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 32,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 4,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 4,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            32
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            1
+          ],
+          "exact_value": -22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            10
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 10,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            32
+          ],
+          "exact_value": 33,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": false,
+              "regret": 25,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": false,
+              "regret": 25,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            32
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 10,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 10,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 10,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            30
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5
+          ],
+          "exact_value": -18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            12
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            24
+          ],
+          "exact_value": -14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": 12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 28,
+              "optimal": false,
+              "regret": 21,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": -16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            18,
+            6,
+            7
+          ],
+          "exact_value": -24,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 18,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 18,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 6,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            27
+          ],
+          "exact_value": 24,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": -8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            6
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            0
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            1
+          ],
+          "exact_value": 18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 18,
+              "optimal": false,
+              "regret": 20,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 28,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 18,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 18,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            31
+          ],
+          "exact_value": -24,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 22,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 22,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 22,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            32
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 3,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            13
+          ],
+          "exact_value": -12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 13,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            34
+          ],
+          "exact_value": 28,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            30
+          ],
+          "exact_value": 22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            17
+          ],
+          "exact_value": -22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 10,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 10,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            31,
+            7
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 2,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            29
+          ],
+          "exact_value": -20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 29,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 29,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 29,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            6
+          ],
+          "exact_value": -18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 6,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 6,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 6,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            30,
+            23
+          ],
+          "exact_value": 30,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            35
+          ],
+          "exact_value": -14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0,
+            30,
+            25
+          ],
+          "exact_value": 12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            35
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            16
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 16,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 16,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 4,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            30,
+            12,
+            34
+          ],
+          "exact_value": 18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": -12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            12
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            35
+          ],
+          "exact_value": 15,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        }
+      ]
+    },
+    "time_inversi": {
+      "summary": {
+        "ordinary-pretrain-v4": {
+          "optimal": 61,
+          "total": 100,
+          "mean_stone_regret": 3.47,
+          "missed_wins": 9
+        },
+        "oracle-pretrain-v1": {
+          "optimal": 65,
+          "total": 100,
+          "mean_stone_regret": 2.42,
+          "missed_wins": 5
+        },
+        "oracle-pretrain-v2": {
+          "optimal": 72,
+          "total": 100,
+          "mean_stone_regret": 2.34,
+          "missed_wins": 5
+        }
+      },
+      "rows": [
+        {
+          "empty": 5,
+          "best": [
+            1
+          ],
+          "exact_value": 16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            29
+          ],
+          "exact_value": 29,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 25,
+              "optimal": false,
+              "regret": 21,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": false,
+              "regret": 7,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 29,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            16
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 16,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 16,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 16,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            18
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 9,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 27,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 27,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0,
+            5
+          ],
+          "exact_value": 14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            5
+          ],
+          "exact_value": 3,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            30
+          ],
+          "exact_value": -23,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            5
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            4
+          ],
+          "exact_value": 20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            12
+          ],
+          "exact_value": 17,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 5,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 5,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 28,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": false,
+              "regret": 16,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            17
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            7
+          ],
+          "exact_value": -20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": false,
+              "regret": 1,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 2,
+              "optimal": false,
+              "regret": 1,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 7,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            5
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": false,
+              "regret": 18,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            30
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            29
+          ],
+          "exact_value": -8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 6,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 6,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 2,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            25
+          ],
+          "exact_value": -16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 25,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 25,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 25,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            31
+          ],
+          "exact_value": 20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            5
+          ],
+          "exact_value": 14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 16,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            23
+          ],
+          "exact_value": -8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            34
+          ],
+          "exact_value": 18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            23
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            26
+          ],
+          "exact_value": 6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            2
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            30,
+            35,
+            4
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            34
+          ],
+          "exact_value": 30,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            4
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 8,
+              "optimal": false,
+              "regret": 16,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            31
+          ],
+          "exact_value": 14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            35
+          ],
+          "exact_value": 11,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            33
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            11,
+            10
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 33,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 33,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            1
+          ],
+          "exact_value": 8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            36
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 36,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 36,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 36,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            1
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 29,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 29,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            2
+          ],
+          "exact_value": -14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35,
+            4
+          ],
+          "exact_value": -14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            7
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 7,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 7,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 7,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0,
+            24
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            35
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            30
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 19,
+              "optimal": false,
+              "regret": 1,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 19,
+              "optimal": false,
+              "regret": 1,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            16
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 16,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 8,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 16,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 24,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            27
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            12,
+            1
+          ],
+          "exact_value": -10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            3,
+            26
+          ],
+          "exact_value": -18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            1,
+            34
+          ],
+          "exact_value": 36,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            23
+          ],
+          "exact_value": 34,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            23
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 23,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 28,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            9
+          ],
+          "exact_value": 11,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 9,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 9,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 8,
+              "optimal": false,
+              "regret": 7,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            36
+          ],
+          "exact_value": -24,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 36,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 36,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 36,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            17
+          ],
+          "exact_value": -20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            22
+          ],
+          "exact_value": -14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 11,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 11,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 11,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            17
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            35
+          ],
+          "exact_value": -14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            5,
+            17
+          ],
+          "exact_value": -8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            18
+          ],
+          "exact_value": 16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": false,
+              "regret": 22,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 18,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            26
+          ],
+          "exact_value": 14,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 22,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 26,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": false,
+              "regret": 22,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            5
+          ],
+          "exact_value": 26,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            31
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 18,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 18,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 18,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            34
+          ],
+          "exact_value": -24,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 34,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            0
+          ],
+          "exact_value": 8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            2
+          ],
+          "exact_value": -22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 4,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            19,
+            4
+          ],
+          "exact_value": 34,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 4,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 4,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 4,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            18
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 18,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 18,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            19
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 19,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 19,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            0
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            0
+          ],
+          "exact_value": 10,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 9,
+              "optimal": false,
+              "regret": 20,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            35
+          ],
+          "exact_value": 22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 33,
+              "optimal": false,
+              "regret": 22,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35,
+            17
+          ],
+          "exact_value": -6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            35
+          ],
+          "exact_value": -18,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 35,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            31
+          ],
+          "exact_value": -20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            24
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 24,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            5
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 13,
+              "optimal": false,
+              "regret": 12,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 24,
+              "optimal": false,
+              "regret": 28,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            17
+          ],
+          "exact_value": -2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 17,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            32
+          ],
+          "exact_value": 12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 22,
+              "optimal": false,
+              "regret": 14,
+              "missed_win": true
+            },
+            "oracle-pretrain-v1": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            27
+          ],
+          "exact_value": -7,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            2
+          ],
+          "exact_value": 6,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            31
+          ],
+          "exact_value": 22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 17,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 17,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 7,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            2
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 31,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 31,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            3
+          ],
+          "exact_value": -4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 3,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            0
+          ],
+          "exact_value": 22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": false,
+              "regret": 8,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 4,
+          "best": [
+            3
+          ],
+          "exact_value": 12,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            2
+          ],
+          "exact_value": 2,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 2,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 9,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": true
+            },
+            "oracle-pretrain-v2": {
+              "action": 22,
+              "optimal": false,
+              "regret": 4,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            30
+          ],
+          "exact_value": 8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 35,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 35,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 30,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            32
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 32,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            27
+          ],
+          "exact_value": -22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 27,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            31
+          ],
+          "exact_value": 4,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 31,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 16,
+              "optimal": false,
+              "regret": 6,
+              "missed_win": true
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            1
+          ],
+          "exact_value": -16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            1
+          ],
+          "exact_value": 20,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 12,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 12,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 12,
+              "optimal": false,
+              "regret": 2,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            32
+          ],
+          "exact_value": -8,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 23,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 23,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 23,
+              "optimal": false,
+              "regret": 10,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            5
+          ],
+          "exact_value": 16,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 5,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 6,
+          "best": [
+            1
+          ],
+          "exact_value": 0,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 1,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        },
+        {
+          "empty": 5,
+          "best": [
+            0
+          ],
+          "exact_value": 22,
+          "models": {
+            "ordinary-pretrain-v4": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v1": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            },
+            "oracle-pretrain-v2": {
+              "action": 0,
+              "optimal": true,
+              "regret": 0,
+              "missed_win": false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

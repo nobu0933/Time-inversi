@@ -1,0 +1,58 @@
+{
+  "created": "2026-10-20T00:33:50.060626",
+  "python": "3.14.2",
+  "torch": "2.14.1+cpu",
+  "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "device": "cpu",
+  "config": {
+    "games": 3,
+    "simulations": 64,
+    "updates": 100,
+    "batch_size": 64,
+    "threads": 2,
+    "device": "cpu",
+    "seed": 1234
+  },
+  "network": {
+    "channels": 64,
+    "blocks": 3,
+    "history_hidden": 64
+  },
+  "selfplay": [
+    {
+      "seconds": 21.723229399998672,
+      "turns": 93
+    },
+    {
+      "seconds": 14.068990999978269,
+      "turns": 69
+    },
+    {
+      "seconds": 16.397702400019625,
+      "turns": 71
+    }
+  ],
+  "update_seconds": 7.35692660001223,
+  "evaluation": {
+    "random": {
+      "seconds": 23.346692100021755,
+      "turns": [
+        104,
+        89
+      ]
+    },
+    "greedy": {
+      "seconds": 20.67113689999678,
+      "turns": [
+        93,
+        82
+      ]
+    }
+  },
+  "estimates_seconds": {
+    "ordinary_iteration": 181.32333593333414,
+    "evaluation_iteration": 621.5016259335196,
+    "hundred_iterations": 26935.89939333712
+  },
+  "caveat": "Estimate from a fresh model and short sample; excludes checkpoint saving/startup. Game length, history length, full replay buffer and machine load can change timings. This is not an estimate of time to reach a given playing strength."
+}

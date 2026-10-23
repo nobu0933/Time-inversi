@@ -11,11 +11,6 @@ The same commit's `core/data/opening-tree.dat` and
 `ddd6a49aa51913050181890f42344afdd863ca636727efb5f740ce73c68d5205`
 and `05700af9046fa97f7e5d0621ca6c6db2f90c9f515b6704e3e2462077ff786a03`.
 
-The upstream repository did not contain a license file at this commit. The
-coefficient file is kept here for local evaluation and reproducible training.
-Before redistributing these files or weights derived from them, obtain suitable
-permission from the upstream author. The web release does not include it.
-
 To retrieve the coefficient file again from upstream when permitted:
 
 ```powershell

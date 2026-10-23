@@ -4,8 +4,9 @@
 __pycache__/
 runs/*
 !runs/experiment01/
+!runs/pro-finetune-pilot-20261023/
+!runs/oracle-opening-pretrain-v1.pt
+!runs/pro100-training-metrics.jsonl
+!runs/benchmarks/
 *.pyc
 oracle-pro-learning-assets/
-pretrained/oracle-weight.rs
-pretrained/oracle-opening-tree.dat
-pretrained/oracle-opening-data.dat

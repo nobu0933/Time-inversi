@@ -1,0 +1,59 @@
+{
+  "created": "2026-10-21T08:17:53.665799",
+  "python": "3.14.2",
+  "torch": "2.14.1+cpu",
+  "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "device": "cpu",
+  "config": {
+    "games": 3,
+    "simulations": 64,
+    "updates": 100,
+    "batch_size": 64,
+    "threads": 2,
+    "device": "cpu",
+    "seed": 1234,
+    "init_model": "runs\\oracle-opening-pretrain-v1.pt"
+  },
+  "network": {
+    "channels": 64,
+    "blocks": 3,
+    "history_hidden": 64
+  },
+  "selfplay": [
+    {
+      "seconds": 28.721839200006798,
+      "turns": 77
+    },
+    {
+      "seconds": 40.12641939998139,
+      "turns": 97
+    },
+    {
+      "seconds": 17.244800300046336,
+      "turns": 48
+    }
+  ],
+  "update_seconds": 10.39344740001252,
+  "evaluation": {
+    "random": {
+      "seconds": 18.078500300005544,
+      "turns": [
+        67,
+        76
+      ]
+    },
+    "greedy": {
+      "seconds": 20.825714499980677,
+      "turns": [
+        89,
+        68
+      ]
+    }
+  },
+  "estimates_seconds": {
+    "ordinary_iteration": 297.3703104001276,
+    "evaluation_iteration": 686.4124583999899,
+    "hundred_iterations": 37517.87400001001
+  },
+  "caveat": "Estimate from a short sample; excludes checkpoint saving/startup. Game length, history length, full replay buffer and machine load can change timings. This is not an estimate of time to reach a given playing strength."
+}
