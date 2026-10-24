@@ -1,0 +1,995 @@
+{
+  "results": {
+    "mid": {
+      "standard": {
+        "games": 4,
+        "wins": 3,
+        "draws": 0,
+        "losses": 1,
+        "score_rate": 0.75,
+        "by_color": {
+          "black": {
+            "wins": 2,
+            "draws": 0,
+            "losses": 0
+          },
+          "white": {
+            "wins": 1,
+            "draws": 0,
+            "losses": 1
+          }
+        },
+        "results": [
+          {
+            "turns": 89,
+            "turns_after_opening": 89,
+            "samples": 0,
+            "opening_actions": [],
+            "color": 1,
+            "passes_after_opening": 6,
+            "reverse_turns_after_opening": 35,
+            "corner_inversions": 4,
+            "black": 25,
+            "white": 11,
+            "result": 1
+          },
+          {
+            "turns": 42,
+            "turns_after_opening": 42,
+            "samples": 0,
+            "opening_actions": [],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 4,
+            "corner_inversions": 4,
+            "black": 8,
+            "white": 28,
+            "result": 1
+          },
+          {
+            "turns": 102,
+            "turns_after_opening": 102,
+            "samples": 0,
+            "opening_actions": [],
+            "color": 1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 37,
+            "corner_inversions": 4,
+            "black": 24,
+            "white": 12,
+            "result": 1
+          },
+          {
+            "turns": 79,
+            "turns_after_opening": 79,
+            "samples": 0,
+            "opening_actions": [],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 29,
+            "corner_inversions": 4,
+            "black": 19,
+            "white": 17,
+            "result": -1
+          }
+        ]
+      },
+      "varied": {
+        "games": 12,
+        "wins": 10,
+        "draws": 0,
+        "losses": 2,
+        "score_rate": 0.8333333333333334,
+        "by_color": {
+          "black": {
+            "wins": 5,
+            "draws": 0,
+            "losses": 1
+          },
+          "white": {
+            "wins": 5,
+            "draws": 0,
+            "losses": 1
+          }
+        },
+        "results": [
+          {
+            "turns": 72,
+            "turns_after_opening": 68,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              4,
+              13
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 26,
+            "corner_inversions": 4,
+            "black": 24,
+            "white": 12,
+            "result": 1
+          },
+          {
+            "turns": 66,
+            "turns_after_opening": 62,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              4,
+              13
+            ],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 16,
+            "corner_inversions": 4,
+            "black": 26,
+            "white": 10,
+            "result": -1
+          },
+          {
+            "turns": 74,
+            "turns_after_opening": 69,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              13,
+              7,
+              34
+            ],
+            "color": 1,
+            "passes_after_opening": 2,
+            "reverse_turns_after_opening": 33,
+            "corner_inversions": 4,
+            "black": 22,
+            "white": 14,
+            "result": 1
+          },
+          {
+            "turns": 72,
+            "turns_after_opening": 67,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              13,
+              7,
+              34
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 24,
+            "corner_inversions": 4,
+            "black": 6,
+            "white": 30,
+            "result": 1
+          },
+          {
+            "turns": 69,
+            "turns_after_opening": 63,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              7,
+              13,
+              19,
+              25,
+              27
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 26,
+            "corner_inversions": 4,
+            "black": 21,
+            "white": 15,
+            "result": 1
+          },
+          {
+            "turns": 78,
+            "turns_after_opening": 72,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              7,
+              13,
+              19,
+              25,
+              27
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 28,
+            "corner_inversions": 4,
+            "black": 8,
+            "white": 28,
+            "result": 1
+          },
+          {
+            "turns": 85,
+            "turns_after_opening": 77,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              34,
+              9,
+              7,
+              27,
+              32,
+              35
+            ],
+            "color": 1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 28,
+            "corner_inversions": 4,
+            "black": 24,
+            "white": 12,
+            "result": 1
+          },
+          {
+            "turns": 80,
+            "turns_after_opening": 72,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              34,
+              9,
+              7,
+              27,
+              32,
+              35
+            ],
+            "color": -1,
+            "passes_after_opening": 5,
+            "reverse_turns_after_opening": 34,
+            "corner_inversions": 4,
+            "black": 14,
+            "white": 22,
+            "result": 1
+          },
+          {
+            "turns": 54,
+            "turns_after_opening": 50,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              10,
+              19
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 10,
+            "corner_inversions": 4,
+            "black": 20,
+            "white": 16,
+            "result": 1
+          },
+          {
+            "turns": 46,
+            "turns_after_opening": 42,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              10,
+              19
+            ],
+            "color": -1,
+            "passes_after_opening": 4,
+            "reverse_turns_after_opening": 4,
+            "corner_inversions": 4,
+            "black": 5,
+            "white": 31,
+            "result": 1
+          },
+          {
+            "turns": 76,
+            "turns_after_opening": 70,
+            "samples": 0,
+            "opening_actions": [
+              13,
+              19,
+              28,
+              10,
+              26,
+              22
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 31,
+            "corner_inversions": 4,
+            "black": 13,
+            "white": 23,
+            "result": -1
+          },
+          {
+            "turns": 49,
+            "turns_after_opening": 43,
+            "samples": 0,
+            "opening_actions": [
+              13,
+              19,
+              28,
+              10,
+              26,
+              22
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 7,
+            "corner_inversions": 4,
+            "black": 15,
+            "white": 21,
+            "result": 1
+          }
+        ]
+      }
+    },
+    "pro100": {
+      "standard": {
+        "games": 4,
+        "wins": 4,
+        "draws": 0,
+        "losses": 0,
+        "score_rate": 1.0,
+        "by_color": {
+          "black": {
+            "wins": 2,
+            "draws": 0,
+            "losses": 0
+          },
+          "white": {
+            "wins": 2,
+            "draws": 0,
+            "losses": 0
+          }
+        },
+        "results": [
+          {
+            "turns": 95,
+            "turns_after_opening": 95,
+            "samples": 0,
+            "opening_actions": [],
+            "color": 1,
+            "passes_after_opening": 2,
+            "reverse_turns_after_opening": 30,
+            "corner_inversions": 4,
+            "black": 28,
+            "white": 8,
+            "result": 1
+          },
+          {
+            "turns": 52,
+            "turns_after_opening": 52,
+            "samples": 0,
+            "opening_actions": [],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 9,
+            "corner_inversions": 4,
+            "black": 17,
+            "white": 19,
+            "result": 1
+          },
+          {
+            "turns": 95,
+            "turns_after_opening": 95,
+            "samples": 0,
+            "opening_actions": [],
+            "color": 1,
+            "passes_after_opening": 2,
+            "reverse_turns_after_opening": 30,
+            "corner_inversions": 4,
+            "black": 28,
+            "white": 8,
+            "result": 1
+          },
+          {
+            "turns": 52,
+            "turns_after_opening": 52,
+            "samples": 0,
+            "opening_actions": [],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 9,
+            "corner_inversions": 4,
+            "black": 17,
+            "white": 19,
+            "result": 1
+          }
+        ]
+      },
+      "varied": {
+        "games": 12,
+        "wins": 6,
+        "draws": 0,
+        "losses": 6,
+        "score_rate": 0.5,
+        "by_color": {
+          "black": {
+            "wins": 2,
+            "draws": 0,
+            "losses": 4
+          },
+          "white": {
+            "wins": 4,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "results": [
+          {
+            "turns": 56,
+            "turns_after_opening": 52,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              4,
+              13
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 11,
+            "corner_inversions": 4,
+            "black": 10,
+            "white": 26,
+            "result": -1
+          },
+          {
+            "turns": 89,
+            "turns_after_opening": 85,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              4,
+              13
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 33,
+            "corner_inversions": 4,
+            "black": 11,
+            "white": 25,
+            "result": 1
+          },
+          {
+            "turns": 48,
+            "turns_after_opening": 43,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              13,
+              7,
+              34
+            ],
+            "color": 1,
+            "passes_after_opening": 4,
+            "reverse_turns_after_opening": 5,
+            "corner_inversions": 4,
+            "black": 24,
+            "white": 12,
+            "result": 1
+          },
+          {
+            "turns": 57,
+            "turns_after_opening": 52,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              13,
+              7,
+              34
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 11,
+            "corner_inversions": 4,
+            "black": 21,
+            "white": 15,
+            "result": -1
+          },
+          {
+            "turns": 76,
+            "turns_after_opening": 70,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              7,
+              13,
+              19,
+              25,
+              27
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 33,
+            "corner_inversions": 4,
+            "black": 5,
+            "white": 31,
+            "result": -1
+          },
+          {
+            "turns": 63,
+            "turns_after_opening": 57,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              7,
+              13,
+              19,
+              25,
+              27
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 14,
+            "corner_inversions": 4,
+            "black": 17,
+            "white": 19,
+            "result": 1
+          },
+          {
+            "turns": 13,
+            "turns_after_opening": 5,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              34,
+              9,
+              7,
+              27,
+              32,
+              35
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 5,
+            "corner_inversions": 1,
+            "black": 11,
+            "white": 0,
+            "result": 1
+          },
+          {
+            "turns": 70,
+            "turns_after_opening": 62,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              34,
+              9,
+              7,
+              27,
+              32,
+              35
+            ],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 26,
+            "corner_inversions": 4,
+            "black": 15,
+            "white": 21,
+            "result": 1
+          },
+          {
+            "turns": 67,
+            "turns_after_opening": 63,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              10,
+              19
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 17,
+            "corner_inversions": 4,
+            "black": 12,
+            "white": 24,
+            "result": -1
+          },
+          {
+            "turns": 92,
+            "turns_after_opening": 88,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              10,
+              19
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 34,
+            "corner_inversions": 4,
+            "black": 5,
+            "white": 31,
+            "result": 1
+          },
+          {
+            "turns": 70,
+            "turns_after_opening": 64,
+            "samples": 0,
+            "opening_actions": [
+              13,
+              19,
+              28,
+              10,
+              26,
+              22
+            ],
+            "color": 1,
+            "passes_after_opening": 2,
+            "reverse_turns_after_opening": 17,
+            "corner_inversions": 4,
+            "black": 10,
+            "white": 26,
+            "result": -1
+          },
+          {
+            "turns": 78,
+            "turns_after_opening": 72,
+            "samples": 0,
+            "opening_actions": [
+              13,
+              19,
+              28,
+              10,
+              26,
+              22
+            ],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 32,
+            "corner_inversions": 4,
+            "black": 32,
+            "white": 4,
+            "result": -1
+          }
+        ]
+      }
+    },
+    "pro122": {
+      "standard": {
+        "games": 4,
+        "wins": 2,
+        "draws": 0,
+        "losses": 2,
+        "score_rate": 0.5,
+        "by_color": {
+          "black": {
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          },
+          "white": {
+            "wins": 2,
+            "draws": 0,
+            "losses": 0
+          }
+        },
+        "results": [
+          {
+            "turns": 66,
+            "turns_after_opening": 66,
+            "samples": 0,
+            "opening_actions": [],
+            "color": 1,
+            "passes_after_opening": 2,
+            "reverse_turns_after_opening": 15,
+            "corner_inversions": 4,
+            "black": 13,
+            "white": 23,
+            "result": -1
+          },
+          {
+            "turns": 78,
+            "turns_after_opening": 78,
+            "samples": 0,
+            "opening_actions": [],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 31,
+            "corner_inversions": 4,
+            "black": 0,
+            "white": 33,
+            "result": 1
+          },
+          {
+            "turns": 66,
+            "turns_after_opening": 66,
+            "samples": 0,
+            "opening_actions": [],
+            "color": 1,
+            "passes_after_opening": 2,
+            "reverse_turns_after_opening": 15,
+            "corner_inversions": 4,
+            "black": 13,
+            "white": 23,
+            "result": -1
+          },
+          {
+            "turns": 78,
+            "turns_after_opening": 78,
+            "samples": 0,
+            "opening_actions": [],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 31,
+            "corner_inversions": 4,
+            "black": 0,
+            "white": 33,
+            "result": 1
+          }
+        ]
+      },
+      "varied": {
+        "games": 12,
+        "wins": 9,
+        "draws": 1,
+        "losses": 2,
+        "score_rate": 0.7916666666666666,
+        "by_color": {
+          "black": {
+            "wins": 4,
+            "draws": 1,
+            "losses": 1
+          },
+          "white": {
+            "wins": 5,
+            "draws": 0,
+            "losses": 1
+          }
+        },
+        "results": [
+          {
+            "turns": 45,
+            "turns_after_opening": 41,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              4,
+              13
+            ],
+            "color": 1,
+            "passes_after_opening": 4,
+            "reverse_turns_after_opening": 26,
+            "corner_inversions": 3,
+            "black": 20,
+            "white": 3,
+            "result": 1
+          },
+          {
+            "turns": 74,
+            "turns_after_opening": 70,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              4,
+              13
+            ],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 31,
+            "corner_inversions": 4,
+            "black": 14,
+            "white": 22,
+            "result": 1
+          },
+          {
+            "turns": 39,
+            "turns_after_opening": 34,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              13,
+              7,
+              34
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 3,
+            "corner_inversions": 4,
+            "black": 22,
+            "white": 13,
+            "result": 1
+          },
+          {
+            "turns": 62,
+            "turns_after_opening": 57,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              13,
+              7,
+              34
+            ],
+            "color": -1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 14,
+            "corner_inversions": 4,
+            "black": 8,
+            "white": 28,
+            "result": 1
+          },
+          {
+            "turns": 100,
+            "turns_after_opening": 94,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              7,
+              13,
+              19,
+              25,
+              27
+            ],
+            "color": 1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 36,
+            "corner_inversions": 4,
+            "black": 21,
+            "white": 15,
+            "result": 1
+          },
+          {
+            "turns": 48,
+            "turns_after_opening": 42,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              7,
+              13,
+              19,
+              25,
+              27
+            ],
+            "color": -1,
+            "passes_after_opening": 2,
+            "reverse_turns_after_opening": 6,
+            "corner_inversions": 4,
+            "black": 12,
+            "white": 24,
+            "result": 1
+          },
+          {
+            "turns": 13,
+            "turns_after_opening": 5,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              34,
+              9,
+              7,
+              27,
+              32,
+              35
+            ],
+            "color": 1,
+            "passes_after_opening": 0,
+            "reverse_turns_after_opening": 5,
+            "corner_inversions": 1,
+            "black": 11,
+            "white": 0,
+            "result": 1
+          },
+          {
+            "turns": 82,
+            "turns_after_opening": 74,
+            "samples": 0,
+            "opening_actions": [
+              22,
+              28,
+              34,
+              9,
+              7,
+              27,
+              32,
+              35
+            ],
+            "color": -1,
+            "passes_after_opening": 7,
+            "reverse_turns_after_opening": 35,
+            "corner_inversions": 4,
+            "black": 0,
+            "white": 35,
+            "result": 1
+          },
+          {
+            "turns": 83,
+            "turns_after_opening": 79,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              10,
+              19
+            ],
+            "color": 1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 27,
+            "corner_inversions": 4,
+            "black": 18,
+            "white": 18,
+            "result": 0
+          },
+          {
+            "turns": 77,
+            "turns_after_opening": 73,
+            "samples": 0,
+            "opening_actions": [
+              8,
+              9,
+              10,
+              19
+            ],
+            "color": -1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 21,
+            "corner_inversions": 4,
+            "black": 31,
+            "white": 5,
+            "result": -1
+          },
+          {
+            "turns": 43,
+            "turns_after_opening": 37,
+            "samples": 0,
+            "opening_actions": [
+              13,
+              19,
+              28,
+              10,
+              26,
+              22
+            ],
+            "color": 1,
+            "passes_after_opening": 1,
+            "reverse_turns_after_opening": 4,
+            "corner_inversions": 4,
+            "black": 12,
+            "white": 24,
+            "result": -1
+          },
+          {
+            "turns": 51,
+            "turns_after_opening": 45,
+            "samples": 0,
+            "opening_actions": [
+              13,
+              19,
+              28,
+              10,
+              26,
+              22
+            ],
+            "color": -1,
+            "passes_after_opening": 3,
+            "reverse_turns_after_opening": 8,
+            "corner_inversions": 4,
+            "black": 7,
+            "white": 27,
+            "result": 1
+          }
+        ]
+      }
+    }
+  },
+  "seconds": 458.46028120000847
+}

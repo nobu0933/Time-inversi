@@ -85,8 +85,12 @@ MIDの`runs/experiment01/latest.pt`もある場合、最後に両モデルを黒
 
 100回学習済みのPROをMIDと100回時点のPROとの対局も交えて追加学習する場合は、[最終調整の手順](docs/PRO_FINETUNING.md)を参照してください。
 
+147回目を起点にMID・PRO100・122回目を相手とし、異なる序盤も混ぜて追加学習する場合は、[混合相手による追加学習手順](docs/PRO_MIXED_FINETUNING_FROM_147.md)を参照してください。
+
+202回目を起点にMID・PRO100・122回目・207回目と各回24局対戦させる場合は、[202回目からの追加学習手順](docs/PRO_FINETUNING_FROM_202.md)を参照してください。
+
 ```powershell
-.\.venv-pro\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/pro01/latest.pt --output ../assets/ai/pro-model.js
+.\.venv-pro\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/pro-mixed-from-202/iteration-307.pt --output ../assets/ai/pro-model.js
 ```
 
 ## 事前学習を作り直す場合のみ

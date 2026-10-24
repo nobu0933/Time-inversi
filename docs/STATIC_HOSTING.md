@@ -1,6 +1,6 @@
 # 静的サイトでMID・PROと対局する
 
-ゲーム画面、MID・PROの100回学習済みモデル、探索処理がすべてブラウザで動きます。プレイヤーのPCにPythonを入れたり、着手用のサーバーを起動したりする必要はありません。CPUボタンは`OFF → EZY → MID → PRO → OFF`。EZYはランダム、MID・PROはそれぞれのモデルで64回のMCTS探索を行います。
+ゲーム画面、MIDの100回目・PROの307回目のモデル、探索処理がすべてブラウザで動きます。プレイヤーのPCにPythonを入れたり、着手用のサーバーを起動したりする必要はありません。CPUボタンは`OFF → EZY → MID → PRO → OFF`。EZYはランダム、MID・PROはそれぞれのモデルで64回のMCTS探索を行います。
 
 ## 公開用ファイル
 
@@ -40,7 +40,7 @@ node scripts/preview.cjs
 
 ```powershell
 .\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/experiment01/latest.pt
-.\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/pro01/latest.pt --output ../assets/ai/pro-model.js
+.\.venv\Scripts\python.exe -m time_inversi.export_browser --checkpoint runs/pro-mixed-from-202/iteration-307.pt --output ../assets/ai/pro-model.js
 ```
 
 書き出しは学習済みの推論用重みをFloat32のまま保存します。再学習や量子化は行いません。元の`latest.pt`は変更しません。ブラウザ用の書き出し後、Pythonとの照合テストを実行できます（Node.jsが必要です）。

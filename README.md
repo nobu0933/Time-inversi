@@ -1,6 +1,6 @@
 # Time Inversi
 
-GitHub Pagesやitch.ioで公開したページを開くだけで、学習済みAIのMID・PROと対局できます。Pythonサーバーは不要です。CPUボタンは`OFF → EZY → MID → PRO → OFF`の順です。EZYはランダム、MIDとPROはそれぞれ100回学習したモデルと64回の探索を使います。
+GitHub Pagesやitch.ioで公開したページを開くだけで、学習済みAIのMID・PROと対局できます。Pythonサーバーは不要です。CPUボタンは`OFF → EZY → MID → PRO → OFF`の順です。EZYはランダム、MIDは100回目、PROは307回目のモデルを使い、それぞれ64回の探索を行います。
 
 公開用ZIPは`python scripts/package_web.py`で`dist/time-inversi-web.zip`に生成できます。itch.ioにはZIPをアップロードし、GitHub PagesにはZIPを展開した中身を配置します。詳しくは[公開・モデル更新の手順](docs/STATIC_HOSTING.md)を参照してください。
 

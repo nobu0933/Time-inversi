@@ -14,7 +14,7 @@ from time_inversi.rules import create_game, legal_actions, step
 
 ROOT = Path(__file__).resolve().parents[2]
 CHECKPOINT = ROOT / 'python_ai/runs/experiment01/latest.pt'
-PRO_CHECKPOINT = ROOT / 'python_ai/runs/pro01/latest.pt'
+PRO_CHECKPOINT = ROOT / 'python_ai/runs/pro-mixed-from-202/iteration-307.pt'
 
 
 @unittest.skipUnless(shutil.which('node') and CHECKPOINT.exists(), 'Browser parity needs Node.js and the original checkpoint')
